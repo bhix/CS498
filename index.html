@@ -23,6 +23,13 @@ d3.selectAll("rect")
     .attr("height",function(d) { return 10*d; })
     .attr("x",function(d,i) { return 20*i; })
     .attr("y",function(d) { return 420 - 10*d; });
+	
+d3.csv("nfl_draft.csv", function(data) {
+    data = data.filter(function(row) {
+        return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI') && (row['Year'] <= 2008 && row['Year'] >= 2000);
+    })
+    console.log(data[0]);
+});
 </script>
 
 </body></html>
