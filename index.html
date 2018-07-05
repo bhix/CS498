@@ -148,17 +148,20 @@ function showSlides(n, year) {
   var i;
   <!-- var slides = document.getElementByClassName("slide"); -->
   var dots = document.getElementsByClassName("dot");
-  document.getElementById("index").innerHTML = n;
-  document.getElementById("year").innerHTML = year;
-  slideIndex = n;
   if (n > dots.length) {
     slideIndex = 1;
     year = 2000;
   } 
-  if (n < 1) {
+  else if (n < 1) {
     slideIndex = dots.length
     year = 2008;
   }
+  else {
+    slideIndex = n;
+    year = year;
+  }
+  document.getElementById("index").innerHTML = n;
+  document.getElementById("year").innerHTML = year;
   <!-- here -->
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
