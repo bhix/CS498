@@ -131,7 +131,6 @@
 
 <script>
 var slideIndex = 1;
-var year = 2000;
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -168,8 +167,7 @@ function showSlides(n) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
   dots[slideIndex-1].className += " active";
-
-   update();
+  update();
 }
 function update(){
   var dataAll = [4,8,15,16,23,42];
