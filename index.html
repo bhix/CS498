@@ -103,11 +103,11 @@
 
   <!-- Full-width images with number and caption text -->
   <div class="slide fade">
-    <div class="numbertext"><span class="index"></span> / 9</div>
+    <div class="numbertext"><span id="index"></span> / 9</div>
     <div>
       <svg class="chart" width="120" height="500"></svg>
     </div>
-    <div class="text"><span class = "year"></span></div>
+    <div class="text"><span id="year"></span></div>
   </div>
 <!--
   <div class="mySlides fade">
@@ -164,8 +164,8 @@ function showSlides(n, year) {
   var i;
   var slides = document.getElementByClassName("slide");
   var dots = document.getElementsByClassName("dot");
-  document.getElementByClassName("index").innerHTML = n;
-  document.getElementByClassName("year").innerHTML = year;
+  document.getElementById("index").innerHTML = n;
+  document.getElementById("year").innerHTML = year;
   slideIndex = n;
   if (n > dots.length) {slideIndex = 1} 
   if (n < 1) {slideIndex = dots.length}
