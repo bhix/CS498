@@ -102,14 +102,14 @@
 <div class="slideshow-container">
 
   <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 9</div>
+  <div class="slide fade">
+    <div class="numbertext"><span class="index"></span> / 9</div>
     <div>
       <svg class="chart" width="120" height="500"></svg>
     </div>
-    <div class="text">2000</div>
+    <div class="text"><span class = "year"></span></div>
   </div>
-
+<!--
   <div class="mySlides fade">
     <div class="numbertext">2 / 9</div>
     <div>
@@ -125,7 +125,7 @@
       </div>
     <div class="text">Caption Three</div>
   </div>
-
+-->
   <!-- Next and previous buttons -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -137,28 +137,39 @@
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+  <span class="dot" onclick="currentSlide(8)"></span> 
+  <span class="dot" onclick="currentSlide(9)"></span> 
 </div>
 
 <script>
 var slideIndex = 1;
-showSlides(slideIndex);
+var year = 2000;
+showSlides(slideIndex, year);
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides(slideIndex += n, year += n);
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides(slideIndex = n, year = 1999 + n);
 }
 
-function showSlides(n) {
+function showSlides(n, year) {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
+  var slides = document.getElementByClassName("slide");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1} 
-  if (n < 1) {slideIndex = slides.length}
+  document.getElementByClassName("index").innerHTML = n;
+  document.getElementByClassName("year").innerHTML = year;
+  slideIndex = n;
+  if (n > dots.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = dots.length}
+  <!--
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none"; 
   }
@@ -166,6 +177,7 @@ function showSlides(n) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block"; 
+  -->
   dots[slideIndex-1].className += " active";
 
    update();
