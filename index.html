@@ -2,17 +2,51 @@
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <style> .chart rect { fill: steelblue } </style>
 
-<html><body>
-<p>Here are the magic numbers from Lost: <span id="data"></span></p>
+<html>
+<!-- Slideshow container -->
+<div class="slideshow-container">
 
-<svg class="chart" width="120" height="500">
-    <rect></rect>
-    <rect></rect>
-    <rect></rect>
-    <rect></rect>
-    <rect></rect>
-    <rect></rect>
-</svg>
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 9</div>
+    <body>
+	<p>Here are the magic numbers from Lost: <span id="data"></span></p>
+
+	<svg class="chart" width="120" height="500">
+    		<rect></rect>
+    		<rect></rect>
+    		<rect></rect>
+    		<rect></rect>
+    		<rect></rect>
+    		<rect></rect>
+	</svg>
+    	<div class="text">2000</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="img2.jpg" style="width:100%">
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="img3.jpg" style="width:100%">
+    <div class="text">Caption Three</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
 
 <script>
 var data = [4,8,15,16,23,42];
