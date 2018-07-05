@@ -167,24 +167,26 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block"; 
   dots[slideIndex-1].className += " active";
+
+   update();
 }
-var data = [4,8,15,16,23,42];
-var svg = d3.selec
-d3.select(".chart").selectAll("rect")
-	.data(data).enter().append("rect")
+function update(){
+  var data = [4,8,15,16,23,42];
+  var svg = d3.select(".chart").selectAll("rect").data(data).enter().append("rect")
     .attr("width",19)
     .attr("height",function(d) { return 10*d; })
     .attr("x",function(d,i) { return 20*i; })
     .attr("y",function(d) { return 420 - 10*d; });
 
-console.log('before data read')
-d3.csv("nfl_draft.csv", function(data) {
+  console.log('before data read')
+  d3.csv("nfl_draft.csv", function(data) {
     data = data.filter(function(row) {
         return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI') && (row['Year'] <= 2008 && row['Year'] >= 2000);
     })
-    console.log(data[0]);
-    console.log(data.length);
-});
+  console.log(data[0]);
+  console.log(data.length);
+  });
+}
 </script>
 
 </body></html>
