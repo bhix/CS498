@@ -132,20 +132,19 @@
 <script>
 var slideIndex = 1;
 var year = 2000;
-showSlides(slideIndex, year);
+showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
-  console.log(slideIndex + ' ' + year);
-  showSlides(slideIndex += n, year += n);
+  showSlides(slideIndex += n);
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n, year = 1999 + n);
+  showSlides(slideIndex = n);
 }
 
-function showSlides(n, year) {
+function showSlides(n) {
   var i;
   <!-- var slides = document.getElementByClassName("slide"); -->
   var dots = document.getElementsByClassName("dot");
@@ -154,13 +153,14 @@ function showSlides(n, year) {
     year = 2000;
   } 
   else if (n < 1) {
-    slideIndex = dots.length
+    slideIndex = dots.length;
     year = 2008;
   }
   else {
     slideIndex = n;
-    year = year;
+    year = 1999 + n;
   }
+  console.log(slideIndex + ' ' + year);
   document.getElementById("index").innerHTML = slideIndex;
   document.getElementById("year").innerHTML = year;
   <!-- here -->
