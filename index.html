@@ -105,28 +105,22 @@
   <div class="mySlides fade">
     <div class="numbertext">1 / 9</div>
       <div>
-        <svg class="chart" width="120" height="500">
-    	  <rect></rect>
-    	  <rect></rect>
-    	  <rect></rect>
-    	  <rect></rect>
-    	  <rect></rect>
-    	  <rect></rect>
+        <svg class="chart" width="120" height="500"display="block" margin="auto">
 	</svg>
       <div class="text">2000</div>
     </div>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
+    <div class="numbertext">2 / 9</div>
       <div>
-        <svg class="chart" width="120" height="500"></svg>
+        <svg class="chart" width="120" height="500" display="block" margin="auto"></svg>
       </div>
     <div class="text">Caption Two</div>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
+    <div class="numbertext">3 / 9</div>
       <div>
         <svg class="chart" width="120" height="500"></svg>
       </div>
@@ -177,7 +171,7 @@ function showSlides(n) {
 }
 var data = [4,8,15,16,23,42];
 d3.selectAll("rect")
-	.data(data)
+	.data(data).enter().append("rect")
     .attr("width",19)
     .attr("height",function(d) { return 10*d; })
     .attr("x",function(d,i) { return 20*i; })
