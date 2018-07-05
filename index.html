@@ -151,8 +151,14 @@ function showSlides(n, year) {
   document.getElementById("index").innerHTML = n;
   document.getElementById("year").innerHTML = year;
   slideIndex = n;
-  if (n > dots.length) {slideIndex = 1} 
-  if (n < 1) {slideIndex = dots.length}
+  if (n > dots.length) {
+    slideIndex = 1;
+    year = 2000;
+  } 
+  if (n < 1) {
+    slideIndex = dots.length
+    year = 2008;
+  }
   <!-- here -->
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
@@ -163,11 +169,17 @@ function showSlides(n, year) {
 }
 function update(){
   var data = [4,8,15,16,23,42];
-  var svg = d3.select(".chart").selectAll("rect").data(data).enter().append("rect")
+  var data2001 = [10,20,30];
+  var sel;
+  if (year == 2001){ sel = d3.select(".chart").selectAll("rect").data(data2001) }
+  else { sel = d3.select(".chart").selectAll("rect").data(data) }
+  
+  sel.enter().append("rect").merge(sel)
     .attr("width",19)
     .attr("height",function(d) { return 10*d; })
     .attr("x",function(d,i) { return 20*i; })
     .attr("y",function(d) { return 420 - 10*d; });
+  sel.exit().remove()
 
   console.log('before data read')
   d3.csv("nfl_draft.csv", function(data) {
