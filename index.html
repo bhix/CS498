@@ -136,6 +136,7 @@ showSlides(slideIndex, year);
 
 // Next/previous controls
 function plusSlides(n) {
+  console.log(slideIndex + ' ' + year);
   showSlides(slideIndex += n, year += n);
 }
 
@@ -160,7 +161,7 @@ function showSlides(n, year) {
     slideIndex = n;
     year = year;
   }
-  document.getElementById("index").innerHTML = n;
+  document.getElementById("index").innerHTML = slideIndex;
   document.getElementById("year").innerHTML = year;
   <!-- here -->
   for (i = 0; i < dots.length; i++) {
