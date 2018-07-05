@@ -168,11 +168,12 @@ function showSlides(n, year) {
    update();
 }
 function update(){
-  var data = [4,8,15,16,23,42];
+  var dataAll = [4,8,15,16,23,42];
   var data2001 = [10,20,30];
-  var sel;
-  if (year == 2001){ sel = d3.select(".chart").selectAll("rect").data(data2001) }
-  else { sel = d3.select(".chart").selectAll("rect").data(data) }
+  var data;
+  if (year == 2001){ data = data2001 }
+  else { data = dataAll }
+  var sel = d3.select(".chart").selectAll("rect").data(data);
   
   sel.enter().append("rect").merge(sel)
     .attr("width",19)
