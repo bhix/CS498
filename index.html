@@ -184,7 +184,7 @@ function update(){
   if (year == 2001){ data = data2001 }
   else { data = dataAll }
   
-  var sel = d3.select(".chart").selectAll("rect").data(data);
+  var sel = svg.selectAll("rect").data(data);
   
   sel.enter().append("rect").merge(sel)
     .attr("width",19)
