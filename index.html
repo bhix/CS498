@@ -187,7 +187,7 @@ function update(){
   console.log('before data read')
   d3.csv("nfl_draft.csv", function(data) {
     data = data.filter(function(row) {
-        return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI') && (row['Year'] <= 2008 && row['Year'] >= 2000);
+        return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI') && (row['Year'] == year);
     })
   console.log(data[0]);
   console.log(data.length);
