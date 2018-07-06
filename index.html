@@ -108,8 +108,7 @@
   <!-- Full-width images with number and caption text -->
   <div class="slide fade">
     <div class="numbertext"><span id="index"></span> / 9</div>
-    <div style="text-align:center;">
-      <svg class="chart" width="120" height="500"></svg>
+    <div class= "svgcontainer" style="text-align:center;">
     </div>
     <div class="text"><span id="year"></span></div>
   </div>
@@ -134,7 +133,16 @@
 </div>
 
 <script>
-var slideIndex = 1;
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom,
+    slideIndex = 1;
+  
+//draw svg canvas
+var svg = d3.select(".svgcontainer").append("svg").attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -179,6 +187,7 @@ function update(){
   var data;
   if (year == 2001){ data = data2001 }
   else { data = dataAll }
+  
   var sel = d3.select(".chart").selectAll("rect").data(data);
   
   sel.enter().append("rect").merge(sel)
