@@ -99,7 +99,7 @@
   to {opacity: 1}
 }
 
-body {
+.svgcontainer {
   font: 11px sans-serif;
 }
 
@@ -158,24 +158,45 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     slideIndex = 1;
   
 // setup x and y axis
-var xValue = function(d) { return d.Calories;}, // data -> value
-    xScale = d3.scaleLinear().range([0, width]), // value -> display
+var xValue = function(d) { return d.Rnd;}, // data -> value
+    xScale = d3.scaleLinear().domain([1,7])range([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
     xAxis = d3.axisBottom(xScale);
 
-var yValue = function(d) { return d["Protein (g)"];}, // data -> value
+var yValue = function(d) { return d.DrAV;}, // data -> value
     yScale = d3.scaleLinear().range([height, 0]), // value -> display
     yMap = function(d) { return yScale(yValue(d));}, // data -> display
     yAxis = d3.axisLeft(yScale);
+  
+//var team = function(d) { return d.Tm;},
+//    color = d3.scale.category10();
 //draw svg canvas
 var svg = d3.select(".svgcontainer").append("svg").attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+// add the tooltip area to the webpage
+var tooltip = d3.select(".svgcontainer").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
   
 showSlides(slideIndex);
-
+function colorDot(team){
+    if (team == "GNB"){
+        return "green"  
+    }
+    else if (team == "CHI"){
+        return "orange" 
+    }
+    else if (team == "DET"){
+        return "blue" 
+    }
+    else if (team == "MIN"){
+        return "purple"
+    }
+}
 // Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
