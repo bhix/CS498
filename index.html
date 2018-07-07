@@ -3,7 +3,6 @@
 
 <html>
 <style>
-.chart rect { fill: steelblue }
 * {box-sizing:border-box}
 
 /* Slideshow container */
@@ -99,6 +98,28 @@
   from {opacity: .4} 
   to {opacity: 1}
 }
+
+body {
+  font: 11px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
 </style>
 <!-- Slideshow container -->
 <div class="slideshow-container">
@@ -136,11 +157,23 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
     height = 500 - margin.top - margin.bottom,
     slideIndex = 1;
   
+// setup x and y axis
+var xValue = function(d) { return d.Calories;}, // data -> value
+    xScale = d3.scale.linear().range([0, width]), // value -> display
+    xMap = function(d) { return xScale(xValue(d));}, // data -> display
+    xAxis = d3.axisBottom(xScale);
+
+var yValue = function(d) { return d["Protein (g)"];}, // data -> value
+    yScale = d3.scale.linear().range([height, 0]), // value -> display
+    yMap = function(d) { return yScale(yValue(d));}, // data -> display
+    yAxis = d3.axisLeft(yScale);
 //draw svg canvas
 var svg = d3.select(".svgcontainer").append("svg").attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  
 showSlides(slideIndex);
 
 // Next/previous controls
