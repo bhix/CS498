@@ -234,27 +234,18 @@ function showSlides(n) {
   update();
 }
 function update(){
-  var dataAll = [4,8,15,16,23,42];
-  var data2001 = [10,20,30];
-  var data;
-  if (year == 2001){ data = data2001 }
-  else { data = dataAll }
   
-  var sel = svg.selectAll("rect").data(data);
-  
-  sel.enter().append("rect").merge(sel)
-    .attr("width",19)
-    .attr("height",function(d) { return 10*d; })
-    .attr("x",function(d,i) { return 20*i; })
-    .attr("y",function(d) { return 420 - 10*d; });
-  sel.exit().remove()
-
   console.log('before data read')
   d3.csv("nfl_draft.csv", function(data) {
     data = data.filter(function(row) {
         return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI') && (row['Year'] == year);
     })
   console.log(data[0]);
+  });
+  data.forEach(function(d) {
+    d.DrAV = +d.DrAV;
+    d.Rnd = +d.Rnd;
+    console.log(d);
   });
 }
 </script>
