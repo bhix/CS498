@@ -159,7 +159,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
   
 // setup x and y axis
 var xValue = function(d) { return d.Rnd;}, // data -> value
-    xScale = d3.scaleLinear().domain([1,7])range([0, width]), // value -> display
+    xScale = d3.scaleLinear().domain([1,7]).range([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
     xAxis = d3.axisBottom(xScale);
 
