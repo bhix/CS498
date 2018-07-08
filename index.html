@@ -244,7 +244,7 @@ function update(){
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
     
-    // x-axis
+    // x-axis creation
     if (svg.selectAll(".x.axis").empty()){
         svg.append("g")
             .attr("class", "x axis")
@@ -257,14 +257,13 @@ function update(){
             .style("text-anchor", "end")
             .text("Round");
     }
+    //axis already drawn, resize it based on data
     else{
         svg.selectAll(".x.axis")  
-            //.attr("class", "x axis")
-            //.attr("transform", "translate(0," + height + ")")
             .call(xAxis)
     }
 
-  // y-axis
+  // y-axis creation
     if (svg.selectAll(".y.axis").empty()){
         svg.append("g")
             .attr("class", "y axis")
@@ -277,9 +276,9 @@ function update(){
             .style("text-anchor", "end")
             .text("Draft AV");
     }
+    //axis already drawn, resize it based on data
     else{
         svg.selectAll(".y.axis")
-            .attr("class", "y axis")
             .call(yAxis) 
     }
     });
