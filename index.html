@@ -171,7 +171,20 @@ var tooltip = d3.select("body").append("div")
 //custom color scale for NFC North Teams
 var color = d3.scaleOrdinal().domain(["GNB","DET","CHI","MIN"]).range(["green","LightBlue","orange","purple"]);
 
-  
+function getFullName(tm){
+    if (tm == "GNB"){
+        return "Green Bay"
+    }
+    else if (tm == "DET"){
+	return "Detroit"
+    }
+    else if (tm == "CHI"){
+	return "Chicago"
+    }
+    else if (tm == "MIN"){
+	return "Minnesota"
+    }
+}
 showSlides(slideIndex);
 // Next/previous controls
 function plusSlides(n) {
@@ -307,8 +320,7 @@ function update(){
           .attr("dy", ".35em")
           .style("text-anchor", "end")
           .text(function(d) { 
-	      console.log(d)
-	      return d;})
+	      return getFullName(d);})
     });
   
 }
