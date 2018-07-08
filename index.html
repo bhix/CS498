@@ -231,7 +231,10 @@ function update(){
     		Tm: d.Tm,
     		Year: d.Year,
 		Rnd: d.Rnd,
-		DrAV: d.DrAV
+		DrAV: d.DrAV,
+		Pick: d.Pick,
+		Pos: d.Pos,
+		Player: d.Player
   	}
     });
     data.forEach(function(d) {
@@ -245,8 +248,8 @@ function update(){
         })
 	mean = d3.mean(nflDataRound,function(d) { return d.DrAV})
         console.log("mean for round: " + i + " " + mean)
-	//data = data.push(
-    	//    "{DrAV: mean, Tm: "NFL", Rnd: i}");
+	data.push(
+    	    {DrAV: mean, Tm: "NFL", Rnd: i});
     }
 	 
     data = data.filter(function(row) {
