@@ -52,15 +52,6 @@
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #000000;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
 /* The dots/bullets/indicators */
 .slidedot {
   cursor: pointer;
@@ -122,8 +113,6 @@
 
   <!-- Full-width images with number and caption text -->
   <div class="slide fade">
-    <div class="numbertext"><span id="index"></span> / 9</div>
-    <br>
     <div class= "svgcontainer" style="text-align:center;">
     </div>
   </div>
@@ -220,7 +209,6 @@ function showSlides(n) {
     year = 1999 + n;
   }
   console.log(slideIndex + ' ' + year);
-  document.getElementById("index").innerHTML = slideIndex;
   document.getElementById("year").innerHTML = year + " NFL Draft";
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
