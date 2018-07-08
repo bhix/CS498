@@ -226,6 +226,14 @@ function update(){
     data = data.filter(function(row) {
         return (row['Year'] == year);
     })
+    data = data.map(function(d) {
+  	return {
+    		Tm: d.Tm,
+    		Year: d.Year,
+		Rnd: d.Rnd,
+		DrAV: d.DrAV
+  	}
+    });
     data.forEach(function(d) {
       d.DrAV = +d.DrAV;
       d.Rnd = +d.Rnd;
