@@ -150,7 +150,7 @@ var xAxisScale = d3.scaleLinear().range([0, width]).domain([0,7.9]),
 // x scale for data plotting
 var xValue = function(d) { return d.Pick;}, // data -> value
     xScale = d3.scaleLinear().range([0, width]), // value -> display
-    xMap = function(d) { return xScale(xValue(d));}, // data -> display
+    xMap = function(d) { return xScale(xValue(d));}; // data -> display
     
 //y scale and axis
 var yValue = function(d) { return d.DrAV;}, // data -> value
