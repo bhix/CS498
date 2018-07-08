@@ -145,7 +145,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 60},
     slideIndex = 1;
   
 // setup x and y axis
-var xValue = function(d) { return d.Rnd;}, // data -> value
+var xValue = function(d) { return d.Pick;}, // data -> value
     xScale = d3.scaleLinear().range([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
     xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d")).ticks(8);
@@ -169,7 +169,7 @@ var tooltip = d3.select("body").append("div")
     .style("opacity", 0);
 	
 //custom color scale for NFC North Teams
-var color = d3.scaleOrdinal().domain(["GNB","DET","CHI","MIN"]).range(["green","LightBlue","orange","purple"]);
+var color = d3.scaleOrdinal().domain(["GNB","DET","CHI","MIN","NFL"]).range(["green","LightBlue","orange","purple","]);
 
 function getFullName(tm){
     if (tm == "GNB"){
@@ -183,6 +183,9 @@ function getFullName(tm){
     }
     else if (tm == "MIN"){
 	return "Minnesota"
+    }
+    else{
+	return "NFL Average Player DrAV for Round"
     }
 }
 showSlides(slideIndex);
