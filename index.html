@@ -246,7 +246,6 @@ function update(){
     
     // x-axis
     if (svg.selectAll(".x.axis").empty()){
-        console.log("empty");
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
@@ -272,16 +271,30 @@ function update(){
     }
 
   // y-axis
-    svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis)
-     .append("text")
-        .attr("class", "label")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Draft AV");
+    if (svg.selectAll(".y.axis").empty()){
+        svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+        .append("text")
+            .attr("class", "label")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Draft AV");
+    }
+    else{
+        svg.selectAll(".y.axis")
+            .attr("class", "y axis")
+            .call(yAxis)
+        .append("text")
+            .attr("class", "label")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Draft AV"); 
+    }
     });
   
 }
