@@ -260,7 +260,7 @@ function update(){
     })
     console.log(data)
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
-    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue) + 0.9]);
+    xScale.domain([0, d3.max(data, xValue) + 0.9]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue) + 5]);
     
     // x-axis creation
