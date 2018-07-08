@@ -260,7 +260,8 @@ function update(){
 	return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI' || row['Tm'] == 'NFL')    
     })
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
-    xScale.domain([0, d3.max(data, xValue) + 0.9]);
+    //xScale.domain([0, d3.max(data, xValue) + 0.9]);
+    xScale.domain([0, 7.9);  
     console.log(d3.max(data, xValue))
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue) + 5]);
     
