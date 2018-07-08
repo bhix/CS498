@@ -157,7 +157,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
 var xValue = function(d) { return d.Rnd;}, // data -> value
     xScale = d3.scaleLinear().range([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
-    xAxis = d3.axisBottom(xScale);
+    xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d")).ticks(8);
 
 var yValue = function(d) { return d.DrAV;}, // data -> value
     yScale = d3.scaleLinear().range([height, 0]), // value -> display
@@ -249,8 +249,6 @@ function update(){
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis)
-            .tickFormat(d3.format("d"))
-            .ticks(d3.max(data, xValue) + 1)
         .append("text")
             .attr("fill", "black")
             .attr("class", "label")
