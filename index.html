@@ -229,7 +229,7 @@ function update(){
     });
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)]);
-    yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)]);
+    yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue) + 5]);
     
     // x-axis creation
     if (svg.selectAll(".x.axis").empty()){
