@@ -227,7 +227,6 @@ function update(){
     data.forEach(function(d) {
       d.DrAV = +d.DrAV;
       d.Rnd = +d.Rnd;
-      console.log(d);
     });
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue) + 0.9]);
@@ -314,6 +313,7 @@ function update(){
       // draw legend text
       legend.append("text")
           .attr("x", width - 24)
+	  .attr("fill", "black")
           .attr("y", 9)
           .attr("dy", ".35em")
           .style("text-anchor", "end")
