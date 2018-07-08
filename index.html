@@ -48,10 +48,6 @@
   color: #000000;
   font-size: 15px;
   padding: 8px 12px;
-  /*
-  position: absolute;
-  bottom: 8px;
-  */
   width: 100%;
   text-align: center;
 }
@@ -249,16 +245,30 @@ function update(){
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
     
     // x-axis
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis)
-      .append("text")
-        .attr("class", "label")
-        .attr("x", width)
-        .attr("y", -6)
-        .style("text-anchor", "end")
-        .text("Round");
+    if (svg.selectAll(".x axis").empty()){
+        svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+        .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", -6)
+            .style("text-anchor", "end")
+            .text("Round");
+    }
+    else{
+        svg.selectAll(".x axis")  
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+        .append("text")
+            .attr("class", "label")
+            .attr("x", width)
+            .attr("y", -6)
+            .style("text-anchor", "end")
+            .text("Round");
+    }
 
   // y-axis
     svg.append("g")
