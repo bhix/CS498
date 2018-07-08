@@ -221,7 +221,7 @@ function showSlides(n) {
   }
   console.log(slideIndex + ' ' + year);
   document.getElementById("index").innerHTML = slideIndex;
-  document.getElementById("year").innerHTML = year;
+  document.getElementById("year").innerHTML = year + " NFL Draft";
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
@@ -249,13 +249,15 @@ function update(){
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis)
+            .tickFormat(d3.format("d"))
+            .ticks(d3.max(data, xValue) + 1)
         .append("text")
             .attr("fill", "black")
             .attr("class", "label")
             .attr("x", width)
             .attr("y", -6)
             .style("text-anchor", "end")
-            .text("Round");
+            .text("Round of Draft");
     }
     //axis already drawn, resize it based on data
     else{
