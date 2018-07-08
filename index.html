@@ -272,7 +272,7 @@ function update(){
         svg.selectAll(".y.axis")
             .call(yAxis) 
     }
-
+    var colorDomain = d3.scaleLinear.range(["LightBlue", "green", "orange", "purple"])
     // plot data
     var players = svg.selectAll(".dot").data(data)
     players.enter().append("circle").merge(players)
@@ -296,10 +296,10 @@ function update(){
                  .style("opacity", 0);
         });
       players.exit().remove();
-	  
+
       // draw legend
       var legend = svg.selectAll(".legend")
-          .data(color.domain())
+          .data(colorDomain.domain())
         .enter().append("g")
           .attr("class", "legend")
           .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
