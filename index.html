@@ -138,7 +138,7 @@
 </div>
 
 <script>
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 20, right: 20, bottom: 30, left: 80},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
     slideIndex = 1;
@@ -286,8 +286,8 @@ function update(){
                  .style("opacity", .9);
             tooltip.html(d.Player + "<br/> Pick: " + d.Pick
 	          + "<br/> Position: " + d.Pos)
-                 .style("left", (d3.event.pageX) + "px")
-                 .style("top", (d3.event.pageY) + "px");
+                 .style("left", (d3.event.pageX + 5) + "px")
+                 .style("top", (d3.event.pageY - 28) + "px");
         })
         .on("mouseout", function(d) {
             tooltip.transition()
