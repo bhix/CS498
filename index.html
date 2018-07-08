@@ -176,7 +176,7 @@ function colorDot(team){
         return "orange" 
     }
     else if (team == "DET"){
-        return "blue" 
+        return "LightBlue" 
     }
     else if (team == "MIN"){
         return "purple"
@@ -228,7 +228,7 @@ function update(){
       console.log(d);
     });
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
-    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)]);
+    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue) + 0.5]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue) + 5]);
     
     // x-axis creation
@@ -276,7 +276,7 @@ function update(){
         .data(data)
       .enter().append("circle")
         .attr("class", "dot")
-        .attr("r", 3.5)
+        .attr("r", 4.5)
         .attr("cx", xMap)
         .attr("cy", yMap)
         .style("fill", function(d) { return colorDot(d.Tm);}) 
@@ -286,8 +286,8 @@ function update(){
                  .style("opacity", .9);
             tooltip.html(d.Player + "<br/> Pick: " + d.Pick
 	          + "<br/> Position: " + d.Pos)
-                 .style("left", (d3.event.pageX + 5) + "px")
-                 .style("top", (d3.event.pageY - 28) + "px");
+                 .style("left", (d3.event.pageX) + "px")
+                 .style("top", (d3.event.pageY) + "px");
         })
         .on("mouseout", function(d) {
             tooltip.transition()
