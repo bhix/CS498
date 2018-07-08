@@ -300,14 +300,15 @@ function update(){
           .style("fill", color);
 
       // draw legend text
-      console.log(d.Tm)
       legend.append("text")
           .attr("x", width - 24)
 	  .attr("fill", "black")
           .attr("y", 9)
           .attr("dy", ".35em")
           .style("text-anchor", "end")
-          .text(function(d) { return d.Tm;})
+          .text(function(d) { 
+	      console.log(d.Tm);
+	      return d.Tm;})
     });
   
 }
