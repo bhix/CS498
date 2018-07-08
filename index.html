@@ -230,11 +230,14 @@ function update(){
       d.DrAV = +d.DrAV;
       d.Rnd = +d.Rnd;
     });
-    var nflDataRound1 = data.filter(function(row) {
-        return(row['Rnd'] == "1")				    
-    })
-    mean = d3.mean(nflDataRound1,function(d) { return d.DrAV})
-    console.log("mean before: " + mean)
+    //get NFL average DrAV for each round in that year for annotations
+    for (i = 1; i <=7; i++){
+        var nflDataRound = data.filter(function(row) {
+            return(row['Rnd'] == i)				    
+        })
+	mean = d3.mean(nflDataRound,function(d) { return d.DrAV})
+        console.log("mean for round: " + i + " " + mean)
+    }
     data = data.filter(function(row) {
 	return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI')    
     })
