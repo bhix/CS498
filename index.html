@@ -270,6 +270,30 @@ function update(){
         svg.selectAll(".y.axis")
             .call(yAxis) 
     }
+    
+    // plot data
+    svg.selectAll(".dot")
+        .data(data)
+      .enter().append("circle")
+        .attr("class", "dot")
+        .attr("r", 3.5)
+        .attr("cx", xMap)
+        .attr("cy", yMap)
+        .style("fill", function(d) { return colorDot(d.Tm);}) 
+        .on("mouseover", function(d) {
+            tooltip.transition()
+                 .duration(200)
+                 .style("opacity", .9);
+            tooltip.html(d.Player + "<br/> Pick: " + d.Pick
+	          + "<br/> Position: " + d.Pos)
+                 .style("left", (d3.event.pageX + 5) + "px")
+                 .style("top", (d3.event.pageY - 28) + "px");
+        })
+        .on("mouseout", function(d) {
+            tooltip.transition()
+                 .duration(500)
+                 .style("opacity", 0);
+        });
     });
   
 }
