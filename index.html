@@ -167,23 +167,12 @@ var svg = d3.select(".svgcontainer").append("svg").attr("width", width + margin.
 var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
+	
+//custom color scale for NFC North Teams
+var color = d3.scaleOrdinal().domain(["GNB","DET","CHI","MIN"]).range(["green","LightBlue","orange","purple"]);
 
   
 showSlides(slideIndex);
-function colorDot(team){
-    if (team == "GNB"){
-        return "green"  
-    }
-    else if (team == "CHI"){
-        return "orange" 
-    }
-    else if (team == "DET"){
-        return "LightBlue" 
-    }
-    else if (team == "MIN"){
-        return "purple"
-    }
-}
 // Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -271,7 +260,7 @@ function update(){
         svg.selectAll(".y.axis")
             .call(yAxis) 
     }
-    var colorDomain = d3.scaleLinear().range(["LightBlue", "green", "orange", "purple"])
+    
     // plot data
     var players = svg.selectAll(".dot").data(data)
     players.enter().append("circle").merge(players)
@@ -279,7 +268,7 @@ function update(){
         .attr("r", 4.5)
         .attr("cx", xMap)
         .attr("cy", yMap)
-        .style("fill", function(d) { return colorDot(d.Tm);}) 
+        .style("fill", function(d) { return color(d.Tm);}) 
         .on("mouseover", function(d) {
             tooltip.transition()
                  .duration(200)
@@ -299,7 +288,7 @@ function update(){
       // draw legend
       console.log(colorDomain)
       var legend = svg.selectAll(".legend")
-          .data(colorDomain.domain())
+          .data(color.domain())
         .enter().append("g")
           .attr("class", "legend")
           .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
@@ -309,7 +298,7 @@ function update(){
           .attr("x", width - 18)
           .attr("width", 18)
           .attr("height", 18)
-          .style("fill", colorDomain);
+          .style("fill", color);
 
       // draw legend text
       legend.append("text")
