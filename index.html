@@ -159,7 +159,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
   
 // setup x and y axis
 var xValue = function(d) { return d.Rnd;}, // data -> value
-    xScale = d3.scaleLinear().domain([1,7]).range([0, width]), // value -> display
+    xScale = d3.scaleLinear().range([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
     xAxis = d3.axisBottom(xScale);
 
@@ -234,19 +234,45 @@ function showSlides(n) {
   update();
 }
 function update(){
-  
   console.log('before data read')
   d3.csv("nfl_draft.csv", function(data) {
     data = data.filter(function(row) {
         return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI') && (row['Year'] == year);
     })
-  console.log(data[0]);
-  });
-  data.forEach(function(d) {
-    d.DrAV = +d.DrAV;
-    d.Rnd = +d.Rnd;
-    console.log(d);
-  });
+    data.forEach(function(d) {
+      d.DrAV = +d.DrAV;
+      d.Rnd = +d.Rnd;
+      console.log(d);
+    });
+    // add 1 on either side of x and y values domain so that data points dont end up mapped on axis
+    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+    yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+    
+    // x-axis
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+      .append("text")
+        .attr("class", "label")
+        .attr("x", width)
+        .attr("y", -6)
+        .style("text-anchor", "end")
+        .text("Round");
+
+  // y-axis
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+     .append("text")
+        .attr("class", "label")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Draft AV");
+    });
+  
 }
 </script>
 
