@@ -259,15 +259,9 @@ function update(){
     }
     else{
         svg.selectAll(".x.axis")  
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
+            //.attr("class", "x axis")
+            //.attr("transform", "translate(0," + height + ")")
             .call(xAxis)
-        .append("text")
-            .attr("class", "label")
-            .attr("x", width)
-            .attr("y", -6)
-            .style("text-anchor", "end")
-            .text("Round");
     }
 
   // y-axis
@@ -286,14 +280,7 @@ function update(){
     else{
         svg.selectAll(".y.axis")
             .attr("class", "y axis")
-            .call(yAxis)
-        .append("text")
-            .attr("class", "label")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("Draft AV"); 
+            .call(yAxis) 
     }
     });
   
