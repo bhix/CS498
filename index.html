@@ -230,13 +230,14 @@ function update(){
       d.DrAV = +d.DrAV;
       d.Rnd = +d.Rnd;
     });
-    mean = d3.mean(data,function(d) { return d.DrAV})
+    var nflDataRound1 = data.filter(function(row)) {
+        return(row['Rnd'] == "1")				    
+    }
+    mean = d3.mean(nflDataRound1,function(d) { return d.DrAV})
     console.log("mean before: " + mean)
     data = data.filter(function(row) {
 	return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI')    
     })
-    mean = d3.mean(data,function(d) { return d.DrAV})
-    console.log("mean filtered: " + mean)
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue) + 0.9]);
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue) + 5]);
