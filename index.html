@@ -143,13 +143,16 @@ var margin = {top: 20, right: 20, bottom: 30, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
     slideIndex = 1;
-  
-// setup x and y axis
+//x axis, set up separately so we have round on it, not pick
+var xAxisScale = d3.scaleLinear().range([0, width]).domain([0,7.9]),
+    xAxis = d3.axisBottom(xAxisScale).tickFormat(d3.format("d")).ticks(8);
+	
+// x scale for data plotting
 var xValue = function(d) { return d.Pick;}, // data -> value
     xScale = d3.scaleLinear().range([0, width]), // value -> display
     xMap = function(d) { return xScale(xValue(d));}, // data -> display
-    xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d")).ticks(8);
-
+    
+//y scale and axis
 var yValue = function(d) { return d.DrAV;}, // data -> value
     yScale = d3.scaleLinear().range([height, 0]), // value -> display
     yMap = function(d) { return yScale(yValue(d));}, // data -> display
@@ -260,8 +263,7 @@ function update(){
 	return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI' || row['Tm'] == 'NFL')    
     })
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
-    //xScale.domain([0, d3.max(data, xValue) + 0.9]);
-    xScale.domain([0, 7.9]);  
+    xScale.domain([0, d3.max(data, xValue) + 0.9]); 
     console.log(d3.max(data, xValue))
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue) + 5]);
     
