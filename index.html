@@ -258,9 +258,9 @@ function update(){
     data = data.filter(function(row) {
 	return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI' || row['Tm'] == 'NFL')    
     })
-    console.log(data)
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
     xScale.domain([0, d3.max(data, xValue) + 0.9]);
+    console.log(d3.max(data, xValue))
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue) + 5]);
     
     // x-axis creation
