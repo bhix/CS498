@@ -230,9 +230,9 @@ function update(){
       d.DrAV = +d.DrAV;
       d.Rnd = +d.Rnd;
     });
-    var nflDataRound1 = data.filter(function(row)) {
+    var nflDataRound1 = data.filter(function(row) {
         return(row['Rnd'] == "1")				    
-    }
+    })
     mean = d3.mean(nflDataRound1,function(d) { return d.DrAV})
     console.log("mean before: " + mean)
     data = data.filter(function(row) {
