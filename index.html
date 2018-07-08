@@ -62,7 +62,7 @@
 }
 
 /* The dots/bullets/indicators */
-.dot {
+.slidedot {
   cursor: pointer;
   height: 15px;
   width: 15px;
@@ -73,7 +73,7 @@
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active, .slidedot:hover {
   background-color: #717171;
 }
 
@@ -136,15 +136,15 @@
 <br>
 <!-- The dots/circles -->
 <div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-  <span class="dot" onclick="currentSlide(4)"></span> 
-  <span class="dot" onclick="currentSlide(5)"></span> 
-  <span class="dot" onclick="currentSlide(6)"></span> 
-  <span class="dot" onclick="currentSlide(7)"></span> 
-  <span class="dot" onclick="currentSlide(8)"></span> 
-  <span class="dot" onclick="currentSlide(9)"></span> 
+  <span class="slidedot" onclick="currentSlide(1)"></span> 
+  <span class="slidedot" onclick="currentSlide(2)"></span> 
+  <span class="slidedot" onclick="currentSlide(3)"></span> 
+  <span class="slidedot" onclick="currentSlide(4)"></span> 
+  <span class="slidedot" onclick="currentSlide(5)"></span> 
+  <span class="slidedot" onclick="currentSlide(6)"></span> 
+  <span class="slidedot" onclick="currentSlide(7)"></span> 
+  <span class="slidedot" onclick="currentSlide(8)"></span> 
+  <span class="slidedot" onclick="currentSlide(9)"></span> 
 </div>
 
 <script>
@@ -206,7 +206,7 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   <!-- var slides = document.getElementByClassName("slide"); -->
-  var dots = document.getElementsByClassName("dot");
+  var dots = document.getElementsByClassName("slidedot");
   if (n > dots.length) {
     slideIndex = 1;
     year = 2000;
@@ -222,7 +222,6 @@ function showSlides(n) {
   console.log(slideIndex + ' ' + year);
   document.getElementById("index").innerHTML = slideIndex;
   document.getElementById("year").innerHTML = year;
-  <!-- here -->
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
@@ -240,9 +239,9 @@ function update(){
       d.Rnd = +d.Rnd;
       console.log(d);
     });
-    // add 1 on either side of x and y values domain so that data points dont end up mapped on axis
-    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-    yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+    // setup x and y domains. add on some buffer values so we don't plot points on the axis
+    xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)]);
+    yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)]);
     
     // x-axis creation
     if (svg.selectAll(".x.axis").empty()){
@@ -251,6 +250,7 @@ function update(){
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis)
         .append("text")
+            .attr("fill", "black")
             .attr("class", "label")
             .attr("x", width)
             .attr("y", -6)
@@ -270,6 +270,7 @@ function update(){
             .call(yAxis)
         .append("text")
             .attr("class", "label")
+            .attr("fill", "black")
             .attr("transform", "rotate(-90)")
             .attr("y", 6)
             .attr("dy", ".71em")
