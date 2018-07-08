@@ -245,7 +245,8 @@ function update(){
     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
     
     // x-axis
-    if (svg.selectAll(".x axis").empty()){
+    if (svg.selectAll(".x.axis").empty()){
+        console.log("empty");
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
@@ -258,7 +259,7 @@ function update(){
             .text("Round");
     }
     else{
-        svg.selectAll(".x axis")  
+        svg.selectAll(".x.axis")  
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis)
