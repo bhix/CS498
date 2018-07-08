@@ -272,9 +272,8 @@ function update(){
     }
     
     // plot data
-    svg.selectAll(".dot")
-        .data(data)
-      .enter().append("circle")
+    var players = svg.selectAll(".dot").data(data)
+    players.enter().append("circle").merge(players)
         .attr("class", "dot")
         .attr("r", 4.5)
         .attr("cx", xMap)
@@ -294,6 +293,7 @@ function update(){
                  .duration(500)
                  .style("opacity", 0);
         });
+      players.exit().remove();
     });
   
 }
