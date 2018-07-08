@@ -272,7 +272,7 @@ function update(){
         svg.selectAll(".y.axis")
             .call(yAxis) 
     }
-    
+    var colors = 
     // plot data
     var players = svg.selectAll(".dot").data(data)
     players.enter().append("circle").merge(players)
@@ -288,7 +288,7 @@ function update(){
             tooltip.html(d.Player + "<br/> Pick: " + d.Pick
 	          + "<br/> Position: " + d.Pos)
                  .style("left", (d3.event.pageX + 10) + "px")
-                 .style("top", (d3.event.pageY - 28) + "px");
+                 .style("top", (d3.event.pageY + 10) + "px");
         })
         .on("mouseout", function(d) {
             tooltip.transition()
@@ -296,6 +296,28 @@ function update(){
                  .style("opacity", 0);
         });
       players.exit().remove();
+	  
+      // draw legend
+      var legend = svg.selectAll(".legend")
+          .data(color.domain())
+        .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      // draw legend colored rectangles
+      legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", colorDot(d.Tm));
+
+      // draw legend text
+      legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function(d) { return d.Tm;})
     });
   
 }
