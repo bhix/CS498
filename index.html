@@ -224,7 +224,7 @@ function update(){
   console.log('before data read')
   d3.csv("nfl_draft.csv", function(data) {
     data = data.filter(function(row) {
-        return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI') && (row['Year'] == year);
+        return (row['Year'] == year);
     })
     data.forEach(function(d) {
       d.DrAV = +d.DrAV;
