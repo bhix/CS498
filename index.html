@@ -237,8 +237,8 @@ function update(){
         })
 	mean = d3.mean(nflDataRound,function(d) { return d.DrAV})
         console.log("mean for round: " + i + " " + mean)
-	data = data.push(
-    	    "{DrAV: mean, Tm: "NFL", Rnd: i}");
+	//data = data.push(
+    	//    "{DrAV: mean, Tm: "NFL", Rnd: i}");
     }
 	 
     data = data.filter(function(row) {
