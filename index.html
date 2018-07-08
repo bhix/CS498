@@ -286,7 +286,6 @@ function update(){
       players.exit().remove();
 
       // draw legend
-      console.log(colorDomain)
       var legend = svg.selectAll(".legend")
           .data(color.domain())
         .enter().append("g")
