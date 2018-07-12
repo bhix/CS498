@@ -374,7 +374,6 @@ function update(){
 	      return getFullName(d);})
 
       var player = svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" });
-      var annotation = svg.select(".annotation");
       if (player.empty()){
           console.log('empty');
 	  annotation.style("opacity", 0);
