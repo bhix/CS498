@@ -358,24 +358,16 @@ function update(){
           .style("text-anchor", "end")
           .text(function(d) { 
 	      return getFullName(d);})
-	  
-      console.log("here")
-      var found = false;
-      merged.each(function(d) { console.log(d); })
-      console.log(svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" }).attr("cx"));
-      console.log(svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" }).attr("cy"));
-      //for(var i = 0; i < merged.size(); i++) {
-//	  console.log[mer
-  //        if (merged[i].name == 'Brian Urlacher') {
-    //          found = true;
-//	      console.log('found')
-//	      console.log(merged[i])
-  //            break;
-   //       }
-//	  else{//
-	      //console.log(merged[i].name)
-	 // }
-     // }
+
+      var player = svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" });
+      if (player.empty()){
+          console.log('empty');
+      }
+      else{
+	  console.log(player.attr("cx"));
+      	  console.log(player.attr("cy"));  
+      }
+      
     });
   
 }
