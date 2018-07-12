@@ -331,10 +331,18 @@ function update(){
                 tooltip.transition()
                      .duration(200)
                      .style("opacity", .9);
-                tooltip.html(d.Player + "<br/> Pick: " + d.Pick
-	              + "<br/> Position: " + d.Pos)
-                     .style("left", (d3.event.pageX + 10) + "px")
-                     .style("top", (d3.event.pageY + 10) + "px");
+	        if (d.DrAV < 10){
+                    tooltip.html(d.Player + "<br/> Pick: " + d.Pick
+	                  + "<br/> Position: " + d.Pos)
+                         .style("left", (d3.event.pageX + 10) + "px")
+                         .style("top", (d3.event.pageY - 10) + "px");
+		}
+	        else {
+		    tooltip.html(d.Player + "<br/> Pick: " + d.Pick
+	                  + "<br/> Position: " + d.Pos)
+                         .style("left", (d3.event.pageX + 10) + "px")
+                         .style("top", (d3.event.pageY + 10) + "px");
+		}
             })
             .on("mouseout", function(d) {
                 tooltip.transition()
@@ -345,7 +353,7 @@ function update(){
 	      .attr("x", xMap)
 	      .attr("y", yMap)
 	      .style("visibility", "hidden")
-	      .text(function(d) {return d.Player + ':' + d.PB + ' probowl appearances';});
+	      .text(function(d) {return d.Player + ' : ' + d.PB;});
     console.log(players.size())
     console.log(players.enter().size())
     console.log(players.exit().size())
@@ -371,13 +379,13 @@ function update(){
                      .duration(500)
                      .style("opacity", 0);
             });
-      enter.append("text").attr("transform", "translate(10,-20)")
+      enter.append("text").attr("transform", "translate(10,-40)")
 	      .attr("class", "annotation")
 	      .attr("x", xMap)
 	      .attr("y", yMap)
 	      .style("visibility", "hidden")
 	      .attr("fill", "black")
-	      .text(function(d) {return d.Player + ':' + d.PB + ' probowl appearances';});
+	      .text(function(d) {return d.Player + ' : ' + d.PB;});
       players.exit().remove();
 
       // draw legend
