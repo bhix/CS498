@@ -250,13 +250,15 @@ function update(){
 		DrAV: d.DrAV,
 		Pick: d.Pick,
 		Pos: d.Pos,
-		Player: d.Player
+		Player: d.Player,
+		PB: d.PB
   	}
     });
     data.forEach(function(d) {
       d.DrAV = +d.DrAV;
       d.Rnd = +d.Rnd;
       d.Pick = +d.Pick;
+      d.PB = +d.PB;
     });
     //get NFL average DrAV for each round in that year for annotations
     for (i = 1; i <=7; i++){
@@ -340,12 +342,10 @@ function update(){
                      .style("opacity", 0);
             })
     players.select("text")
-	      .attr("class", "annotation")
 	      .attr("x", xMap)
 	      .attr("y", yMap)
 	      .style("visibility", "hidden")
-	      .text(function(d) {return "akfdsklfaj;sfkasfkljasdkljfaskdfk;asd;faskfaskl;fjaslk;dfjalskjfd;lkajfdkas;fdajflksajfk;lasjf;sa;jlfslaj;kfas;df;a"; });
-    players.select("line")
+	      .text(function(d) {return d.Player + ':' + d.PB + ' probowl appearances';});
     console.log(players.size())
     console.log(players.enter().size())
     console.log(players.exit().size())
@@ -375,12 +375,9 @@ function update(){
 	      .attr("class", "annotation")
 	      .attr("x", xMap)
 	      .attr("y", yMap)
-	      .attr("width", 20)
-	      .attr("height", 10)
 	      .style("visibility", "hidden")
 	      .attr("fill", "black")
-	      .text(function(d) {return d.Player; });
-      enter.append("line")
+	      .text(function(d) {return d.Player + ':' + d.PB + ' probowl appearances';});
       players.exit().remove();
 
       // draw legend
