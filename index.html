@@ -407,7 +407,7 @@ function update(){
           .text(function(d) { 
 	      return getFullName(d);})
 
-      var player = svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" || d.Player == "Jamal Reynolds" });
+      var player = svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" || d.Player == "Willie Howard" });
       if (player.empty()){
           console.log('empty');
 	  annotation.style("opacity", 0);
