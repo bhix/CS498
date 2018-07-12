@@ -329,7 +329,7 @@ function update(){
     console.log(players.enter().size())
     console.log(players.exit().size())
     var merged = players.enter().append("g").merge(players).attr("class", "dot")
-    merged.append("circle")
+    merged.select("circle")
             .attr("r", 4.5)
             .attr("cx", xMap)
             .attr("cy", yMap)
@@ -349,11 +349,11 @@ function update(){
                      .duration(500)
                      .style("opacity", 0);
             });
-      merged.append("text").attr("class", "annotation")
+      merged.select("text").attr("class", "annotation")
 	      .attr("transform","translate(20,10)")
 	      .style("visibility", "hidden")
 	      .text(function(d) {return d.Player; });
-      merged.append("line")
+      merged.select("line")
      // players.exit().remove();
 
       // draw legend
