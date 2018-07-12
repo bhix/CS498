@@ -311,6 +311,7 @@ function update(){
     var players = svg.selectAll(".dot").data(data)
     console.log(players.size())
     console.log(players.enter().size())
+    console.log(players.exit().size())
     players = players.enter().append("circle").merge(players)
         .attr("class", "dot")
         .attr("r", 4.5)
