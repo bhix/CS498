@@ -310,6 +310,7 @@ function update(){
     // plot data
     var players = svg.selectAll(".dot").data(data)
     console.log(players.length)
+    console.log(players.enter().length)
     players = players.enter().append("circle").merge(players)
         .attr("class", "dot")
         .attr("r", 4.5)
