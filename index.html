@@ -144,7 +144,7 @@
 </div>
 
 <script>
-var margin = {top: 20, right: 20, bottom: 30, left: 60},
+var margin = {top: 30, right: 20, bottom: 30, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
     slideIndex = 1;
@@ -379,7 +379,7 @@ function update(){
                      .duration(500)
                      .style("opacity", 0);
             });
-      enter.append("text").attr("transform", "translate(10,-40)")
+      enter.append("text").attr("transform", "translate(10,-30)")
 	      .attr("class", "annotation")
 	      .attr("x", xMap)
 	      .attr("y", yMap)
