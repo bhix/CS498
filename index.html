@@ -404,16 +404,16 @@ function update(){
           .text(function(d) { 
 	      return getFullName(d);})
 
-      var player = svg.selectAll(".point").filter(function(d) { return d.Player == "Brian Urlacher" || d.Player == "Willie Howard" });
-      if (player.empty()){
-          console.log('empty');
-	  annotation.style("opacity", 0);
-      }
-      else{
-	  console.log(player.attr("cx"));
-      	  console.log(player.attr("cy"));  
-	  player.select("text").style("visibility", "visible");
-      }
+      var players = svg.selectAll(".point").filter(function(d) { return d.PB >= 1});
+      players.forEach(function(d) {d.select("text").style("visibility", "visible");});
+     // if (players.empty()){
+     //     console.log('empty');
+      //}
+      //else{//
+//	  console.log(player.attr("cx"));
+ //     	  console.log(player.attr("cy"));  /
+//	  player.select("text").style("visibility", "visible");
+  //    }
       
     });
   
