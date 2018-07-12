@@ -375,6 +375,8 @@ function update(){
 	      .attr("class", "annotation")
 	      .attr("x", xMap)
 	      .attr("y", yMap)
+	      .attr("width", 200)
+	      .attr("height", 100)
 	      .style("visibility", "hidden")
 	      .attr("fill", "black")
 	      .text(function(d) {return d.Player; });
