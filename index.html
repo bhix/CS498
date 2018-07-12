@@ -109,6 +109,10 @@
   font: 11px sans-serif;
 }
 	
+.annotation {
+  font: 11px sans-serif;
+}
+	
 </style>
 <body>
 <!-- Slideshow container -->
@@ -366,7 +370,7 @@ function update(){
                      .duration(500)
                      .style("opacity", 0);
             });
-      enter.append("text").attr("transform", "translate(10,10)")
+      enter.append("text").attr("transform", "translate(10,-20)")
 	      .attr("class", "annotation")
 	      .attr("x", xMap)
 	      .attr("y", yMap)
