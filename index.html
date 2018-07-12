@@ -375,6 +375,7 @@ function update(){
 	      .attr("x", xMap)
 	      .attr("y", yMap)
 	      .style("visibility", "hidden")
+	      .attr("fill", "black")
 	      .text(function(d) {return d.Player; });
       enter.append("line")
       players.exit().remove();
