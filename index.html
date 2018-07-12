@@ -309,7 +309,8 @@ function update(){
     
     // plot data
     var players = svg.selectAll(".dot").data(data)
-    players.enter().append("circle").merge(players)
+    console.log(players.length)
+    players = players.enter().append("circle").merge(players)
         .attr("class", "dot")
         .attr("r", 4.5)
         .attr("cx", xMap)
