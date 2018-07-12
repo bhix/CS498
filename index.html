@@ -314,7 +314,7 @@ function update(){
         .attr("r", 4.5)
         .attr("cx", xMap)
         .attr("cy", yMap)
-	.attr("name", d.Player)
+	.attr("name", function(d) { return d.Player; })
         .style("fill", function(d) { return color(d.Tm);}) 
         .on("mouseover", function(d) {
             tooltip.transition()
