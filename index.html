@@ -322,7 +322,7 @@ function update(){
     }
     
     // plot data
-    var players = svg.selectAll(".dot").data(data)
+    var players = svg.selectAll(".dot")
     players.exit().remove()
     var players = svg.selectAll(".dot").data(data)
     console.log(players.size())
