@@ -405,8 +405,9 @@ function update(){
 	      return getFullName(d);})
 
       //annotate
-      svg.selectAll(".point").filter(function(d) { return d.PB >= 1}).each(function(d) { d.select("text").style("visibility", "visible")});
-      players.forEach(function(d) {d.select("text").style("visibility", "visible");});
+      svg.selectAll(".point").filter(function(d) { return d.PB >= 1})
+	      .each(function(d) { d3.select(this).select("text").style("visibility", "visible")});
+      //players.forEach(function(d) {d.select("text").style("visibility", "visible");});
      // if (players.empty()){
      //     console.log('empty');
       //}
