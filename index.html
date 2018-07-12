@@ -343,7 +343,8 @@ function update(){
                      .duration(500)
                      .style("opacity", 0);
             })
-    players.select("text").attr("class", "annotation")
+    players.select("text")
+	      .attr("class", "annotation")
 	      .attr("x", xMap + 10)
 	      .attr("y", yMap - 10)
 	      .style("visibility", "hidden")
@@ -373,7 +374,8 @@ function update(){
                      .duration(500)
                      .style("opacity", 0);
             });
-      enter.append("text").attr("class", "annotation")
+      enter.append("text")
+	      .attr("class", "annotation")
 	      .attr("x", xMap + 10)
 	      .attr("y", yMap - 10)
 	      .style("visibility", "hidden")
@@ -405,7 +407,7 @@ function update(){
           .text(function(d) { 
 	      return getFullName(d);})
 
-      var player = svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" });
+      var player = svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" || d.Player == "David Terrell" });
       if (player.empty()){
           console.log('empty');
 	  annotation.style("opacity", 0);
