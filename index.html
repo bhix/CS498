@@ -404,7 +404,8 @@ function update(){
           .text(function(d) { 
 	      return getFullName(d);})
 
-      var players = svg.selectAll(".point").filter(function(d) { return d.PB >= 1});
+      //annotate
+      svg.selectAll(".point").filter(function(d) { return d.PB >= 1}).each(function(d) { d.select("text").style("visibility", "visible")});
       players.forEach(function(d) {d.select("text").style("visibility", "visible");});
      // if (players.empty()){
      //     console.log('empty');
