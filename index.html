@@ -312,7 +312,7 @@ function update(){
     console.log(players.size())
     console.log(players.enter().size())
     console.log(players.exit().size())
-    players.enter().append("circle").merge(players)
+    var merged = players.enter().append("circle").merge(players)
         .attr("class", "dot")
         .attr("r", 4.5)
         .attr("cx", xMap)
@@ -361,14 +361,15 @@ function update(){
 	  
       console.log("here")
       var found = false;
-      for(var i = 0; i < players.length; i++) {
-          if (players[i].name == 'Brian Urlacher') {
+      for(var i = 0; i < merged.length; i++) {
+          if (merged[i].name == 'Brian Urlacher') {
               found = true;
 	      console.log('found')
+	      console.log(merged[i])
               break;
           }
 	  else{
-	      console.log(players[i].name)
+	      console.log(merged[i].name)
 	  }
       }
     });
