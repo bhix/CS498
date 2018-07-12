@@ -348,6 +348,9 @@ function update(){
                      .style("opacity", 0);
             });
       merged.append("text").attr("class", "annotation")
+	      .attr("transform","translate(-10,10)")
+	      .style("visibility", "hidden")
+	      .text(function(d) {return d.Player; });
       merged.append("line")
       players.exit().remove();
 
@@ -383,10 +386,7 @@ function update(){
       else{
 	  console.log(player.attr("cx"));
       	  console.log(player.attr("cy"));  
-	  annotation.html("Brian Urlacher")
-              .style("opacity", 0.9)
-	      .style("left", (player.attr("cx") + 50) + "px")
-              .style("top", (player.attr("cy") + 10) + "px");
+	  player.select("text").style("visibility", "visible");
       }
       
     });
