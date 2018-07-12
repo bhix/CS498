@@ -314,6 +314,7 @@ function update(){
         .attr("r", 4.5)
         .attr("cx", xMap)
         .attr("cy", yMap)
+	.attr("name", d.Player)
         .style("fill", function(d) { return color(d.Tm);}) 
         .on("mouseover", function(d) {
             tooltip.transition()
@@ -354,6 +355,15 @@ function update(){
           .style("text-anchor", "end")
           .text(function(d) { 
 	      return getFullName(d);})
+	  
+      var found = false;
+      for(var i = 0; i < players.length; i++) {
+          if (players[i].name == 'Brian Urlacher') {
+              found = true;
+	      console.log('found')
+              break;
+          }
+      }
     });
   
 }
