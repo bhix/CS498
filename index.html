@@ -376,8 +376,8 @@ function update(){
             });
       enter.append("text")
 	      .attr("class", "annotation")
-	      .attr("x", (xMap + 10))
-	      .attr("y", (yMap - 10))
+	      .attr("x", xMap)
+	      .attr("y", yMap)
 	      .style("visibility", "hidden")
 	      .text(function(d) {return d.Player; });
       enter.append("line")
