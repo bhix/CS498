@@ -318,7 +318,7 @@ function update(){
     }
     
     // plot data
-    var players = svg.selectAll(".dot").data(data)
+    var players = svg.selectAll(".point").data(data)
     players.select("circle")
             .attr("r", 4.5)
             .attr("cx", xMap)
@@ -349,8 +349,9 @@ function update(){
     console.log(players.size())
     console.log(players.enter().size())
     console.log(players.exit().size())
-    var enter = players.enter().append("g").attr("class", "dot")
+    var enter = players.enter().append("g").attr("class", "point")
     enter.append("circle")
+	    .attr("class", "dot")
             .attr("r", 4.5)
             .attr("cx", xMap)
             .attr("cy", yMap)
@@ -404,7 +405,7 @@ function update(){
           .text(function(d) { 
 	      return getFullName(d);})
 
-      var player = svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" || d.Player == "Willie Howard" });
+      var player = svg.selectAll(".point").filter(function(d) { return d.Player == "Brian Urlacher" || d.Player == "Willie Howard" });
       if (player.empty()){
           console.log('empty');
 	  annotation.style("opacity", 0);
