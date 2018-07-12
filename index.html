@@ -108,6 +108,15 @@
   pointer-events: none;
   font: 11px sans-serif;
 }
+	
+.annotation{
+  position: absolute;
+  width: 500px;
+  height: 200px;
+  pointer-events: none;
+  font: 11px sans-serif;
+}
+	
 </style>
 <body>
 <!-- Slideshow container -->
@@ -169,6 +178,11 @@ var svg = d3.select(".svgcontainer").append("svg").attr("width", width + margin.
 // add the tooltip area to the webpage
 var tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
+    .style("opacity", 0);
+	
+// add the player annotation to the webpage
+var annotation = d3.select("body").append("div")
+    .attr("class", "annotation")
     .style("opacity", 0);
 	
 //custom color scale for NFC North Teams
@@ -360,12 +374,18 @@ function update(){
 	      return getFullName(d);})
 
       var player = svg.selectAll(".dot").filter(function(d) { return d.Player == "Brian Urlacher" });
+      var annotation = svg.select(".annotation");
       if (player.empty()){
           console.log('empty');
+	  annotation.style("opacity", 0);
       }
       else{
 	  console.log(player.attr("cx"));
       	  console.log(player.attr("cy"));  
+	  annotation.html("Brian Urlacher")
+              .style("opacity", 0.9)
+	      .style("left", (player.attr("cx" + 10) + "px")
+              .style("top", (player.attr("cy" - 10) + "px");
       }
       
     });
