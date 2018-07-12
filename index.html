@@ -323,6 +323,8 @@ function update(){
     
     // plot data
     var players = svg.selectAll(".dot").data(data)
+    players.exit().remove()
+    var players = svg.selectAll(".dot").data(data)
     console.log(players.size())
     console.log(players.enter().size())
     console.log(players.exit().size())
@@ -348,11 +350,11 @@ function update(){
                      .style("opacity", 0);
             });
       merged.append("text").attr("class", "annotation")
-	      .attr("transform","translate(-10,10)")
+	      .attr("transform","translate(20,10)")
 	      .style("visibility", "hidden")
 	      .text(function(d) {return d.Player; });
       merged.append("line")
-      players.exit().remove();
+     // players.exit().remove();
 
       // draw legend
       var legend = svg.selectAll(".legend")
