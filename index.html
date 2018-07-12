@@ -344,7 +344,8 @@ function update(){
                      .style("opacity", 0);
             })
     players.select("text").attr("class", "annotation")
-	      .attr("transform","translate(20,10)")
+	      .attr("x", xMap + 10)
+	      .attr("y", yMap - 10)
 	      .style("visibility", "hidden")
 	      .text(function(d) {return d.Player; });
     players.select("line")
