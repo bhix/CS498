@@ -117,7 +117,7 @@
 <body>
 <!-- Slideshow container -->
 <div class="slideshow-container">
-
+<div id="playerInfo"></div>
   <!-- Full-width images with number and caption text -->
   <div class="slide fade">
     <div class= "svgcontainer">
@@ -391,11 +391,14 @@ function update(){
                          .style("left", (d3.event.pageX + 10) + "px")
                          .style("top", (d3.event.pageY + 10) + "px");
 		}
+	        document.getElementById("playerInfo").innerHTML = d.Player + "<br/> Pick: " + d.Pick
+	                  + "<br/> Position: " + d.Pos;
             })
             .on("mouseout", function(d) {
                 tooltip.transition()
                      .duration(500)
                      .style("opacity", 0);
+	        document.getElementById("playerInfo").innerHTML = "";
             });
       enter.append("text").attr("transform", "translate(10,-25)")
 	    .attr("class", "annotation")
