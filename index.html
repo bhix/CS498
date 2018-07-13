@@ -226,40 +226,40 @@ function update(){
     yScale.domain([d3.min(data, yValue), d3.max(data, yValue) + 5]);
 	  
     //plot resizable x axis ticks
-    var groups = svg.selectAll("g.chartGroup").data(chartGroups);
-	console.log(groups.size())
-	groups.select("text")
-    	    .attr({
-      	      x: function(d) { return (d.start + d.end) / 2; },
-      	      dy: "1em",
-              "text-anchor": "middle"
-            })
-            .text(function(d) { return d.round; });
-        groups.select("path")
-            .attr("d", function(d) {
-              var t = d3.select(this.parentNode).select("text").node().getBBox(),
-              ttop = [t.x + t.width / 2, t.y];
-              console.log(d, t, ttop);
-              return "M" + d.start + ",0" + "V" + -offset;
-            }); 
-    var groupsEnter = groups.enter().append("g")
-    	    .attr("class", "chartGroup")
-    	    .attr("transform", "translate(" + 0 + "," + (height + offset) + ")");
-	groups.append("text")
-    	    .attr({
-      	      x: function(d) { return (d.start + d.end) / 2; },
-      	      dy: "1em",
-              "text-anchor": "middle"
-            })
-            .text(function(d) { return d.round; });
-        groups.append("path")
-            .attr("d", function(d) {
-              var t = d3.select(this.parentNode).select("text").node().getBBox(),
-              ttop = [t.x + t.width / 2, t.y];
-              console.log(d, t, ttop);
-              return "M" + d.start + ",0" + "V" + -offset;
-            });
-    groups.exit().remove();
+//    var groups = svg.selectAll("g.chartGroup").data(chartGroups);
+//	console.log(groups.size())
+//	groups.select("text")
+ //   	    .attr({
+//      	      x: function(d) { return (d.start + d.end) / 2; },
+//      	      dy: "1em",
+//              "text-anchor": "middle"
+//            })
+ //           .text(function(d) { return d.round; });
+ //       groups.select("path")
+ //           .attr("d", function(d) {
+ //             var t = d3.select(this.parentNode).select("text").node().getBBox(),
+ //             ttop = [t.x + t.width / 2, t.y];
+ //             console.log(d, t, ttop);
+ //             return "M" + d.start + ",0" + "V" + -offset;
+ //           }); 
+ //   var groupsEnter = groups.enter().append("g")
+ //   	    .attr("class", "chartGroup")
+ //   	    .attr("transform", "translate(" + 0 + "," + (height + offset) + ")");
+//	groups.append("text")
+ //   	    .attr({
+  //    	      x: function(d) { return (d.start + d.end) / 2; },
+  //    	      dy: "1em",
+   //           "text-anchor": "middle"
+   //         })
+   //         .text(function(d) { return d.round; });
+   //     groups.append("path")
+  //          .attr("d", function(d) {
+   //           var t = d3.select(this.parentNode).select("text").node().getBBox(),
+    //          ttop = [t.x + t.width / 2, t.y];
+     //         console.log(d, t, ttop);
+     //         return "M" + d.start + ",0" + "V" + -offset;
+      //      });
+    //groups.exit().remove();
     
     // x-axis creation
     if (svg.selectAll(".x.axis").empty()){
