@@ -106,7 +106,9 @@
   width: 200px;
   height: 28px;
   pointer-events: none;
-  font: 15px sans-serif;
+  font: 13px sans-serif;
+  top: 30px;
+  left: 30px;
 }
 	
 .annotation {
@@ -264,6 +266,7 @@ function update(){
       d.PB = +d.PB;
       //d.G = +d.G;
       d.CarAV = +d.CarAV;
+      console.log(d);
     });
     //get NFL average DrAV for each round in that year for annotations
     for (i = 1; i <=7; i++){
@@ -384,27 +387,25 @@ function update(){
                      .style("opacity", .9);
                 if (d.DrAV < 10){
 	            console.log("under");
-                    tooltip.html(d.Player 
+                    tooltip.html("Player Info:" 
+			  + "<br/>" + d.Player
 			  + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos
 			  + "<br/> Draft AV: " + d.DrAV
 		          + "<br/> Career AV: " + d.CarAV
 			  + "<br/> Games Played: " + d.G
 			  + "<br/> School: " + d.College);
-                         //.style("left", "0 px")
-                        // .style("top",  "0 px");
 		}
 	        else {
 		    console.log("over: " + d.DrAV)
-		    tooltip.html(d.Player 
+		    tooltip.html("Player Info:"
+		          + "<br/>" +  d.Player +
 			  + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos
 			  + "<br/> Draft AV: " + d.DrAV
 		          + "<br/> Career AV: " + d.CarAV
 			  + "<br/> Games Played: " + d.G
 			  + "<br/> School: " + d.College);
-                         //.style("left", "0 px")
-                        // .style("top", "0 px");
 		}
             })
             .on("mouseout", function(d) {
