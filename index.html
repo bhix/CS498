@@ -227,6 +227,7 @@ function update(){
 	  
     //plot resizable x axis ticks
     var groups = svg.selectAll("g.chartGroup").data(chartGroups);
+	console.log(groups.size())
 	groups.select("text")
     	    .attr({
       	      x: function(d) { return (d.start + d.end) / 2; },
