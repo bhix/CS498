@@ -76,8 +76,9 @@ var margin = {top: 30, right: 20, bottom: 30, left: 60},
     height = 500 - margin.top - margin.bottom,
     slideIndex = 1;
 //x axis, set up separately so we have round on it, not pick
+//intentionally plotted with no ticks so we can draw on custom ones later
 var xAxisScale = d3.scaleLinear().range([0, width]).domain([0,7.9]),
-    xAxis = d3.axisBottom(xAxisScale).tickFormat(d3.format("d")).ticks(8);
+    xAxis = d3.axisBottom(xAxisScale).tickValues([]).outerTickSize(offset);
 	
 // x scale for data plotting
 var xValue = function(d) { return d.Pick;}, // data -> value
