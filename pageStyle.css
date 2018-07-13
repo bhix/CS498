@@ -75,7 +75,8 @@
   font: 11px sans-serif;
 }
 .axis path,
-.axis line {
+.axis line,
+g.chartGroup path{
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
