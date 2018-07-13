@@ -386,24 +386,24 @@ function update(){
 	            console.log("under");
                     tooltip.html(d.Player + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos)
-                         .style("left", (d3.event.pageX + 10) + "px")
-                         .style("top", (d3.event.pageY - 30) + "px");
+                         .style("left", "0 px")
+                         .style("top",  "0 px");
 		}
 	        else {
 		    console.log("over: " + d.DrAV)
 		    tooltip.html(d.Player + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos)
-                         .style("left", (d3.event.pageX + 10) + "px")
-                         .style("top", (d3.event.pageY + 10) + "px");
+                         .style("left", "0 px")
+                         .style("top", "0 px");
 		}
-	        document.getElementById("playerInfo").innerHTML = d.Player + "<br/> Pick: " + d.Pick
-	                  + "<br/> Position: " + d.Pos;
+	        //document.getElementById("playerInfo").innerHTML = d.Player + "<br/> Pick: " + d.Pick
+	        //          + "<br/> Position: " + d.Pos;
             })
             .on("mouseout", function(d) {
                 tooltip.transition()
                      .duration(500)
                      .style("opacity", 0);
-	        document.getElementById("playerInfo").innerHTML = "";
+	        //document.getElementById("playerInfo").innerHTML = "";
             });
       enter.append("text").attr("transform", "translate(10,-25)")
 	    .attr("class", "annotation")
