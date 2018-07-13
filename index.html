@@ -51,11 +51,6 @@
   width: 100%;
   text-align: center;
 }
-
-.playerInfo {
-  top: 0px
-  left: 0px
-}
 	
 /* The dots/bullets/indicators */
 .slidedot {
@@ -111,7 +106,7 @@
   width: 200px;
   height: 28px;
   pointer-events: none;
-  font: 11px sans-serif;
+  font: 15px sans-serif;
 }
 	
 .annotation {
@@ -395,7 +390,7 @@ function update(){
 			  + "<br/> Draft AV: " + d.DrAV
 		          + "<br/> Career AV: " + d.CarAV
 			  + "<br/> Games Played: " + d.G
-			  + "<br/> School: " + d["College/Univ"]);
+			  + "<br/> School: " + d.College);
                          //.style("left", "0 px")
                         // .style("top",  "0 px");
 		}
@@ -407,7 +402,7 @@ function update(){
 			  + "<br/> Draft AV: " + d.DrAV
 		          + "<br/> Career AV: " + d.CarAV
 			  + "<br/> Games Played: " + d.G
-			  + "<br/> School: " + d["College/Univ"]);
+			  + "<br/> School: " + d.College);
                          //.style("left", "0 px")
                         // .style("top", "0 px");
 		}
