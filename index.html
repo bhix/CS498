@@ -332,12 +332,14 @@ function update(){
                      .duration(200)
                      .style("opacity", .9);
 	        if (d.DrAV < 10){
+	            console.log("under");
                     tooltip.html(d.Player + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos)
                          .style("left", (d3.event.pageX + 10) + "px")
                          .style("top", (d3.event.pageY - 10) + "px");
 		}
 	        else {
+		    console.log("over: " + d.DrAV)
 		    tooltip.html(d.Player + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos)
                          .style("left", (d3.event.pageX + 10) + "px")
