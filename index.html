@@ -275,7 +275,7 @@ function update(){
               var t = d3.select(this.parentNode).select("text").node().getBBox(),
               ttop = [t.x + t.width / 2, t.y];
               console.log(d, t, ttop);
-              return "M" + Math.floor(d.start) + ",0" + "V" + -offset;
+              return "M" + d.start + ",0" + "V" + -offset;
             }); 
     var groupsEnter = groups.enter().append("g")
     	    .attr("class", "chartGroup")
@@ -292,7 +292,7 @@ function update(){
               var t = d3.select(this.parentNode).select("text").node().getBBox(),
               ttop = [t.x + t.width / 2, t.y];
               console.log(d, t, ttop);
-              return "M" + Math.floor(d.start) + ",0" + "V" + -offset;
+              return "M" + d.start + ",0" + "V" + -offset;
             });
     groups.exit().remove();
     
@@ -301,7 +301,7 @@ function update(){
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-    //        .call(xAxis)
+            .call(xAxis)
         .append("text")
             .attr("fill", "black")
             .attr("class", "label")
@@ -313,7 +313,7 @@ function update(){
     //axis already drawn, resize it based on data
     else{
         svg.selectAll(".x.axis")  
-    //        .call(xAxis)
+            .call(xAxis)
     }
 
   // y-axis creation
@@ -393,59 +393,59 @@ function update(){
     console.log(players.enter().size())
     console.log(players.exit().size())
     var enter = players.enter().append("g").attr("class", "point")
-   // enter.append("circle")
-//	    .attr("class", "dot")
-//            .attr("r", 4.5)
-//            .attr("cx", xMap)
-//            .attr("cy", yMap)
-//	    .attr("name", function(d) { return d.Player; })
-  //          .style("fill", function(d) { return color(d.Tm);}) 
-    //        .on("mouseover", function(d) {
-      //          tooltip.transition()
-        //             .duration(200)
-//                     .style("opacity", .9);
-  //              if (d.DrAV < 10){
-    //                tooltip.html("Player Info:" 
-//			  + "<br/>" + d.Player
-//			  + "<br/> Round: " + d.Rnd
-//			  + "<br/> Pick: " + d.Pick
-//	                  + "<br/> Position: " + d.Pos
-//			  + "<br/> Draft AV: " + d.DrAV
-//		          + "<br/> Career AV: " + d.CarAV
-//			  + "<br/> Games Played: " + d.G
-//			  + "<br/> School: " + d.College);
-//		}
-//	        else {
-//		    tooltip.html("Player Info:"
-//		          + "<br/>" +  d.Player
-//			  + "<br/> Round: " + d.Rnd
-//			  + "<br/> Pick: " + d.Pick
-//	                  + "<br/> Position: " + d.Pos
-//			  + "<br/> Draft AV: " + d.DrAV
-//		          + "<br/> Career AV: " + d.CarAV
-//			  + "<br/> Games Played: " + d.G
-//			  + "<br/> School: " + d.College);
-//		}
-  //          })
-    //        .on("mouseout", function(d) {
-      //          tooltip.transition()
-        //             .duration(500)
-          //           .style("opacity", 0);
-           // });
-//      enter.append("text").attr("transform", "translate(10,-25)")
-//	    .attr("class", "annotation")
-//	    .attr("x", xMap)
-//	    .attr("y", yMap)
-//	    .style("visibility", "hidden")
-  //          .attr("fill", "black")
-    //        .text(function(d) {return d.Player + ' : ' + d.PB;});
-      //enter.append("line").attr("class", "link")
-//            .attr("x1", xMap)
-//	    .attr("y1", yMap)
-//	    .attr("x2", xMapPlusTen)
-//	    .attr("y2", yMapMinusTwentyFive)
-//	    .style("visibility", "hidden")
-  //    players.exit().remove();
+    enter.append("circle")
+	    .attr("class", "dot")
+            .attr("r", 4.5)
+            .attr("cx", xMap)
+            .attr("cy", yMap)
+	    .attr("name", function(d) { return d.Player; })
+            .style("fill", function(d) { return color(d.Tm);}) 
+            .on("mouseover", function(d) {
+                tooltip.transition()
+                     .duration(200)
+                     .style("opacity", .9);
+                if (d.DrAV < 10){
+                    tooltip.html("Player Info:" 
+			  + "<br/>" + d.Player
+			  + "<br/> Round: " + d.Rnd
+			  + "<br/> Pick: " + d.Pick
+	                  + "<br/> Position: " + d.Pos
+			  + "<br/> Draft AV: " + d.DrAV
+		          + "<br/> Career AV: " + d.CarAV
+			  + "<br/> Games Played: " + d.G
+			  + "<br/> School: " + d.College);
+		}
+	        else {
+		    tooltip.html("Player Info:"
+		          + "<br/>" +  d.Player
+			  + "<br/> Round: " + d.Rnd
+			  + "<br/> Pick: " + d.Pick
+	                  + "<br/> Position: " + d.Pos
+			  + "<br/> Draft AV: " + d.DrAV
+		          + "<br/> Career AV: " + d.CarAV
+			  + "<br/> Games Played: " + d.G
+			  + "<br/> School: " + d.College);
+		}
+            })
+            .on("mouseout", function(d) {
+                tooltip.transition()
+                     .duration(500)
+                     .style("opacity", 0);
+            });
+      enter.append("text").attr("transform", "translate(10,-25)")
+	    .attr("class", "annotation")
+	    .attr("x", xMap)
+	    .attr("y", yMap)
+	    .style("visibility", "hidden")
+            .attr("fill", "black")
+            .text(function(d) {return d.Player + ' : ' + d.PB;});
+      enter.append("line").attr("class", "link")
+            .attr("x1", xMap)
+	    .attr("y1", yMap)
+	    .attr("x2", xMapPlusTen)
+	    .attr("y2", yMapMinusTwentyFive)
+	    .style("visibility", "hidden")
+      players.exit().remove();
 
       // draw legend
       var legend = svg.selectAll(".legend")
