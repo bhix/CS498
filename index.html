@@ -79,7 +79,7 @@ var margin = {top: 30, right: 20, bottom: 30, left: 60},
 //x axis, set up separately so we have round on it, not pick
 //intentionally plotted with no ticks so we can draw on custom ones later
 var xAxisScale = d3.scaleLinear().range([0, width]).domain([0,7.9]),
-    xAxis = d3.axisBottom(xAxisScale).ticks(0).outerTickSize(offset);
+    xAxis = d3.axisBottom(xAxisScale).ticks(0).tickSizeOuter(offset);
 	
 // x scale for data plotting
 var xValue = function(d) { return d.Pick;}, // data -> value
