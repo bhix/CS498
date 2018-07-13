@@ -300,7 +300,7 @@ function update(){
         svg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(xAxis)
+    //        .call(xAxis)
         .append("text")
             .attr("fill", "black")
             .attr("class", "label")
@@ -312,7 +312,7 @@ function update(){
     //axis already drawn, resize it based on data
     else{
         svg.selectAll(".x.axis")  
-            .call(xAxis)
+    //        .call(xAxis)
     }
 
   // y-axis creation
