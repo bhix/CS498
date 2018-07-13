@@ -220,6 +220,8 @@ function update(){
       if (d.last) chartGroups[chartGroups.length - 1].end =
         i === array.length - 1 ? xMap : ((xMap + xScale(array[i + 1].Pick)) / 2);
     });
+
+    console.log(chartGroups);
     // setup x and y domains. add on some buffer values so we don't plot points on the axis
     xScale.domain([0, d3.max(data, xValue) + 0.9]); 
     console.log(d3.max(data, xValue))
