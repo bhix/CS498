@@ -41,6 +41,10 @@
   font: 15px sans-serif;
   font-style: bold;
 }
+
+.subheader {
+  font: 13px sans-serif;
+}
 	
 /* The dots/bullets/indicators */
 .slidedot {
