@@ -244,15 +244,16 @@ function update(){
               round: d.Rnd,
               start: xScale(d.Pick) -5
             });
+	    chartGroups[chartGroups.length - 1].end = xScale(d.Pick) -5
 	}
 	console.log(d.Rnd)
 	console.log(d.Pick)
 	console.log(xMap)
 	console.log(xScale(d.Pick))
       }
-      if (d.last) {
-        chartGroups[chartGroups.length - 1].end = xScale(d.Pick) + 5
-	console.log(xScale(d.Pick));
+      if (d.last && i === array.lengh-1) {
+        chartGroups[chartGroups.length - 1].end = width
+	
       }
     });
 
