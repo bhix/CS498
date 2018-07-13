@@ -76,7 +76,7 @@
 }
 .axis path,
 .axis line,
-g.chartGroup path{
+.chartGroup path{
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
