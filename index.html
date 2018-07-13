@@ -211,14 +211,34 @@ function update(){
     //calculating length of marks on axis for each round
     var chartGroups = [];
     data.forEach(function(d, i, array) {
-      if (i === 0) d.first = true; else if (d.Rnd !== array[i - 1].Rnd) d.first = true;
-      if (i === array.length - 1) d.last = true; else if (d.Rnd !== array[i + 1].Rnd) d.last = true;
-      if (d.first) chartGroups.push({
-        round: d.Rnd,
-        start: i === 0 ? xMap : ((xMap+ xScale(array[i - 1].Pick)) / 2)
-      });
-      if (d.last) chartGroups[chartGroups.length - 1].end =
-        i === array.length - 1 ? xMap : ((xMap + xScale(array[i + 1].Pick)) / 2);
+      if (i === 0) {
+	      d.first = true; 
+	      console.log(d.Rnd);
+      }
+      else if (d.Rnd !== array[i - 1].Rnd) {
+	      d.first = true;
+	      console.log(d.Rnd);
+      }
+      if (i === array.length - 1) {
+	      d.last = true; 
+	      console.log(d.Rnd)
+      }
+      else if (d.Rnd !== array[i + 1].Rnd) {
+	      d.last = true;
+	      console.log(d.Rnd)
+      }
+      if (d.first) {
+	chartGroups.push({
+          round: d.Rnd,
+          start: i === 0 ? xMap : ((xMap+ xScale(array[i - 1].Pick)) / 2)
+        });
+	console.log(d.Rnd)
+	console.log(i === 0 ? xMap : ((xMap+ xScale(array[i - 1].Pick)) / 2))
+      }
+      if (d.last) {
+        chartGroups[chartGroups.length - 1].end = i === array.length - 1 ? xMap : ((xMap + xScale(array[i + 1].Pick)) / 2);
+	console.log(i === array.length - 1 ? xMap : ((xMap + xScale(array[i + 1].Pick)) / 2));
+      }
     });
 
     console.log(chartGroups);
