@@ -245,13 +245,13 @@ function update(){
     var groupsEnter = groups.enter().append("g")
     	    .attr("class", "chartGroup")
     	    .attr("transform", "translate(" + 0 + "," + (height + offset) + ")");
-	groups.append("text")
+	groupsEnter.append("text")
 	    .attr("x", function(d) { return (d.start + d.end) / 2; })
 	    .attr("dy", "1em")
 	    .attr("text-anchor", "middle")
 	    .attr("fill", "black")
             .text(function(d) { return d.round; });
-        groups.append("path")
+        groupsEnter.append("path")
 	    .attr("fill", "black")
             .attr("d", function(d) {
               var t = d3.select(this.parentNode).select("text").node().getBBox(),
