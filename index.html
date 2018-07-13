@@ -354,6 +354,12 @@ function update(){
 	      .attr("y", yMap)
 	      .style("visibility", "hidden")
 	      .text(function(d) {return d.Player + ' : ' + d.PB;});
+    players.select("line")
+            .attr("x1", xMap)
+	    .attr("y1", yMap)
+	    .attr("x2", xMap + 10)
+	    .attr("y2", yMap -25);
+	 
     console.log(players.size())
     console.log(players.enter().size())
     console.log(players.exit().size())
@@ -379,13 +385,20 @@ function update(){
                      .duration(500)
                      .style("opacity", 0);
             });
-      enter.append("text").attr("transform", "translate(10,-30)")
-	      .attr("class", "annotation")
-	      .attr("x", xMap)
-	      .attr("y", yMap)
-	      .style("visibility", "hidden")
-	      .attr("fill", "black")
-	      .text(function(d) {return d.Player + ' : ' + d.PB;});
+      enter.append("text").attr("transform", "translate(10,-25)")
+	    .attr("class", "annotation")
+	    .attr("x", xMap)
+	    .attr("y", yMap)
+	    .style("visibility", "hidden")
+            .attr("fill", "black")
+            .text(function(d) {return d.Player + ' : ' + d.PB;});
+      enter.append("line")
+            .attr("x1", xMap)
+	    .attr("y1", yMap)
+	    .attr("x2", xMap + 10)
+	    .attr("y2", yMap -25)
+	    .style("visibility", "hidden")
+	    .attr("fill", "black")
       players.exit().remove();
 
       // draw legend
@@ -414,16 +427,9 @@ function update(){
 
       //annotate
       svg.selectAll(".point").filter(function(d) { return d.PB >= 1})
-	      .each(function(d) { d3.select(this).select("text").style("visibility", "visible")});
-      //players.forEach(function(d) {d.select("text").style("visibility", "visible");});
-     // if (players.empty()){
-     //     console.log('empty');
-      //}
-      //else{//
-//	  console.log(player.attr("cx"));
- //     	  console.log(player.attr("cy"));  /
-//	  player.select("text").style("visibility", "visible");
-  //    }
+	      .each(function(d) { 
+	          d3.select(this).select("text").style("visibility", "visible")
+                  d3.select(this).select("line").style("visibility", "visible"});
       
     });
   
