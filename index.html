@@ -376,8 +376,8 @@ function update(){
 	    .attr("class", "link")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
-	    .attr("x2", function(d) { return (xMap + 10) + "px"})
-	    .attr("y2", function(d) { return (yMap -25) + "px"});
+	    .attr("x2", xMapPlusTen)
+	    .attr("y2", yMapMinusTwentyFive);
 	 
     console.log(players.size())
     console.log(players.enter().size())
@@ -427,8 +427,7 @@ function update(){
 	    .style("visibility", "hidden")
             .attr("fill", "black")
             .text(function(d) {return d.Player + ' : ' + d.PB;});
-      enter.append("line").attr("transform", "translate(10,-25)")
-	    .attr("class", "link")
+      enter.append("line").attr("class", "link")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
 	    .attr("x2", xMapPlusTen)
