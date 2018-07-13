@@ -208,24 +208,29 @@ function update(){
 	return (row['Tm'] == 'GNB' || row['Tm'] == 'MIN' || row['Tm'] == 'DET' || row['Tm'] == 'CHI' || row['Tm'] == 'NFL')    
     })
 
+    // setup x and y domains. add on some buffer values so we don't plot points on the axis
+    xScale.domain([0, d3.max(data, xValue) + 0.9]); 
+    console.log(d3.max(data, xValue))
+    yScale.domain([d3.min(data, yValue), d3.max(data, yValue) + 5]);
+	 
     //calculating length of marks on axis for each round
     var chartGroups = [];
     data.forEach(function(d, i, array) {
       if (i === 0) {
 	      d.first = true; 
-	      console.log(d.Rnd);
+	      console.log('0: ' + d.Rnd);
       }
       else if (d.Rnd !== array[i - 1].Rnd) {
 	      d.first = true;
-	      console.log(d.Rnd);
+	      console.log('first: ' + d.Rnd);
       }
       if (i === array.length - 1) {
 	      d.last = true; 
-	      console.log(d.Rnd)
+	      console.log('last item: ' + d.Rnd)
       }
       else if (d.Rnd !== array[i + 1].Rnd) {
 	      d.last = true;
-	      console.log(d.Rnd)
+	      console.log('last: ' + d.Rnd)
       }
       if (d.first) {
 	chartGroups.push({
@@ -233,6 +238,8 @@ function update(){
           start: xScale(d.Pick)
         });
 	console.log(d.Rnd)
+	console.log(d.Pick)
+	console.log(xMap)
 	console.log(xScale(d.Pick))
       }
       if (d.last) {
@@ -242,10 +249,6 @@ function update(){
     });
 
     console.log(chartGroups);
-    // setup x and y domains. add on some buffer values so we don't plot points on the axis
-    xScale.domain([0, d3.max(data, xValue) + 0.9]); 
-    console.log(d3.max(data, xValue))
-    yScale.domain([d3.min(data, yValue), d3.max(data, yValue) + 5]);
 	  
     //plot resizable x axis ticks
     var groups = svg.selectAll("g.chartGroup").data(chartGroups);
