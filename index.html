@@ -230,14 +230,14 @@ function update(){
       if (d.first) {
 	chartGroups.push({
           round: d.Rnd,
-          start: i === 0 ? xMap : ((xMap+ xScale(array[i - 1].Pick)) / 2)
+          start: xScale(d.Pick)
         });
 	console.log(d.Rnd)
-	console.log(i === 0 ? xMap : ((xMap+ xScale(array[i - 1].Pick)) / 2))
+	console.log(xScale(d.Pick))
       }
       if (d.last) {
-        chartGroups[chartGroups.length - 1].end = i === array.length - 1 ? xMap : ((xMap + xScale(array[i + 1].Pick)) / 2);
-	console.log(i === array.length - 1 ? xMap : ((xMap + xScale(array[i + 1].Pick)) / 2));
+        chartGroups[chartGroups.length - 1].end = xScale(d.Pick)
+	console.log(xScale(d.Pick);
       }
     });
 
