@@ -399,7 +399,7 @@ function update(){
 	        else {
 		    console.log("over: " + d.DrAV)
 		    tooltip.html("Player Info:"
-		          + "<br/>" +  d.Player +
+		          + "<br/>" +  d.Player
 			  + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos
 			  + "<br/> Draft AV: " + d.DrAV
@@ -412,7 +412,6 @@ function update(){
                 tooltip.transition()
                      .duration(500)
                      .style("opacity", 0);
-	        //document.getElementById("playerInfo").innerHTML = "";
             });
       enter.append("text").attr("transform", "translate(10,-25)")
 	    .attr("class", "annotation")
