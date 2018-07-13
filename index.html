@@ -264,9 +264,7 @@ function update(){
       d.Rnd = +d.Rnd;
       d.Pick = +d.Pick;
       d.PB = +d.PB;
-      //d.G = +d.G;
       d.CarAV = +d.CarAV;
-      console.log(d);
     });
     //get NFL average DrAV for each round in that year for annotations
     for (i = 1; i <=7; i++){
@@ -340,18 +338,24 @@ function update(){
                      .duration(200)
                      .style("opacity", .9);
 	        if (d.DrAV < 10){
-	            console.log("under");
-                    tooltip.html(d.Player + "<br/> Pick: " + d.Pick
-	                  + "<br/> Position: " + d.Pos)
-                         .style("left", (d3.event.pageX + 10) + "px")
-                         .style("top", (d3.event.pageY - 30) + "px");
+                    tooltip.html("Player Info:"
+		          + "<br/>" +  d.Player
+			  + "<br/> Pick: " + d.Pick
+	                  + "<br/> Position: " + d.Pos
+			  + "<br/> Draft AV: " + d.DrAV
+		          + "<br/> Career AV: " + d.CarAV
+			  + "<br/> Games Played: " + d.G
+			  + "<br/> School: " + d.College);
 		}
 	        else {
-		    console.log("over: " + d.DrAV)
-		    tooltip.html(d.Player + "<br/> Pick: " + d.Pick
-	                  + "<br/> Position: " + d.Pos)
-                         .style("left", (d3.event.pageX + 10) + "px")
-                         .style("top", (d3.event.pageY + 10) + "px");
+		    tooltip.html("Player Info:"
+		          + "<br/>" +  d.Player
+			  + "<br/> Pick: " + d.Pick
+	                  + "<br/> Position: " + d.Pos
+			  + "<br/> Draft AV: " + d.DrAV
+		          + "<br/> Career AV: " + d.CarAV
+			  + "<br/> Games Played: " + d.G
+			  + "<br/> School: " + d.College);
 		}
             })
             .on("mouseout", function(d) {
@@ -386,7 +390,6 @@ function update(){
                      .duration(200)
                      .style("opacity", .9);
                 if (d.DrAV < 10){
-	            console.log("under");
                     tooltip.html("Player Info:" 
 			  + "<br/>" + d.Player
 			  + "<br/> Pick: " + d.Pick
@@ -397,7 +400,6 @@ function update(){
 			  + "<br/> School: " + d.College);
 		}
 	        else {
-		    console.log("over: " + d.DrAV)
 		    tooltip.html("Player Info:"
 		          + "<br/>" +  d.Player
 			  + "<br/> Pick: " + d.Pick
