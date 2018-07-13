@@ -99,7 +99,6 @@ var yValue = function(d) { return d.DrAV;}, // data -> value
 //draw svg canvas
 var svg = d3.select(".svgcontainer").append("svg").attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .attr("shape-rendering", "crispEdges")
     .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   
