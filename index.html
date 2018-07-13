@@ -158,12 +158,14 @@ var xAxisScale = d3.scaleLinear().range([0, width]).domain([0,7.9]),
 // x scale for data plotting
 var xValue = function(d) { return d.Pick;}, // data -> value
     xScale = d3.scaleLinear().range([0, width]), // value -> display
-    xMap = function(d) { return xScale(xValue(d));}; // data -> display
+    xMap = function(d) { return xScale(xValue(d));}, // data -> display
+    xMapPlusTen = function(d) { return xScale(xValue(d)) + 10;};
     
 //y scale and axis
 var yValue = function(d) { return d.DrAV;}, // data -> value
     yScale = d3.scaleLinear().range([height, 0]), // value -> display
     yMap = function(d) { return yScale(yValue(d));}, // data -> display
+    yMapMinusTwentyFive = function(d) { return yScale(yValue(d)) - 25;},
     yAxis = d3.axisLeft(yScale);
   
 //var team = function(d) { return d.Tm;},
@@ -429,8 +431,8 @@ function update(){
 	    .attr("class", "link")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
-	    .attr("x2", 0)
-	    .attr("y2", 0)
+	    .attr("x2", xMapPlusTen)
+	    .attr("y2", yMapMinusTwentyFive)
 	    .style("visibility", "hidden")
       players.exit().remove();
 
