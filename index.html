@@ -267,13 +267,14 @@ function update(){
       d.CarAV = +d.CarAV;
     });
     //get NFL average DrAV for each round in that year for annotations
+    var averages = [];
     for (i = 1; i <=7; i++){
         var nflDataRound = data.filter(function(row) {
             return(row['Rnd'] == i)				    
         })
 	mean = d3.mean(nflDataRound,function(d) { return d.DrAV})
         console.log("mean for round: " + i + " " + mean)
-	data.push(
+	averages.push(
     	    {DrAV: mean, Tm: "NFL", Rnd: i});
     }
 	 
@@ -371,8 +372,8 @@ function update(){
     players.select("line")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
-	    .attr("x2", function(d) { return (xMap + 10) })
-	    .attr("y2", function(d) { return (yMap -25) });
+	    .attr("x2", function(d) { return (xMap + 10) + "px"})
+	    .attr("y2", function(d) { return (yMap -25) + "px"});
 	 
     console.log(players.size())
     console.log(players.enter().size())
@@ -425,8 +426,8 @@ function update(){
       enter.append("line")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
-	    .attr("x2", function(d) { return (xMap + 10) })
-	    .attr("y2", function(d) { return (yMap -25) })
+	    .attr("x2", function(d) { return (xMap + 10) + "px"})
+	    .attr("y2", function(d) { return (yMap -25) + "px"})
 	    .style("visibility", "hidden")
 	    .attr("fill", "black")
       players.exit().remove();
