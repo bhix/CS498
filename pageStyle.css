@@ -44,6 +44,8 @@
 
 .subheader {
   font: 13px sans-serif;
+  width: 100%;
+  text-align: center;
 }
 	
 /* The dots/bullets/indicators */
