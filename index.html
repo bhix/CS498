@@ -357,8 +357,8 @@ function update(){
     players.select("line")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
-	    .attr("x2", xMap + 10)
-	    .attr("y2", yMap -25);
+	    .attr("x2", function(d) { return (xMap + 10) })
+	    .attr("y2", function(d) { return (yMap -25) });
 	 
     console.log(players.size())
     console.log(players.enter().size())
@@ -395,8 +395,8 @@ function update(){
       enter.append("line")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
-	    .attr("x2", xMap + 10)
-	    .attr("y2", yMap -25)
+	    .attr("x2", function(d) { return (xMap + 10) })
+	    .attr("y2", function(d) { return (yMap -25) })
 	    .style("visibility", "hidden")
 	    .attr("fill", "black")
       players.exit().remove();
