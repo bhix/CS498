@@ -111,8 +111,9 @@
   left: 30px;
 }
 	
-.annotation {
-  font: 11px sans-serif;
+.link{
+  stroke: #777;
+  stroke-width: 2px;
 }
 	
 </style>
@@ -370,6 +371,7 @@ function update(){
 	      .style("visibility", "hidden")
 	      .text(function(d) {return d.Player + ' : ' + d.PB;});
     players.select("line")
+	    .attr("class", "link")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
 	    .attr("x2", function(d) { return (xMap + 10) + "px"})
@@ -424,12 +426,12 @@ function update(){
             .attr("fill", "black")
             .text(function(d) {return d.Player + ' : ' + d.PB;});
       enter.append("line").attr("transform", "translate(10,-25)")
+	    .attr("class", "link")
             .attr("x1", xMap)
 	    .attr("y1", yMap)
 	    .attr("x2", 0)
 	    .attr("y2", 0)
 	    .style("visibility", "hidden")
-	    .attr("fill", "black")
       players.exit().remove();
 
       // draw legend
