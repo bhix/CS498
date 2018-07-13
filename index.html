@@ -46,11 +46,11 @@
 /* Caption text */
 .text {
   color: #000000;
-  font-size: 15px;
   padding: 8px 12px;
   width: 100%;
   text-align: center;
-  font: 13px sans-serif;
+  font: 15px sans-serif;
+  font-style: bold;
 }
 	
 /* The dots/bullets/indicators */
@@ -117,10 +117,58 @@
   stroke-width: 2px;
   
 }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 	
 </style>
 <body>
 <!-- Slideshow container -->
+<!-- Trigger/Open About The Visualization -->
+<button id="myBtn">About The Visualization</button>
+<!-- The Modal -->
+<div id="about" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+</div>
 <div class="tooltip"></div>
 <div class="text"><span id="year" style="font: sans-serif"></span></div>
 <div class="slideshow-container">
@@ -149,6 +197,31 @@
 </div>
 
 <script>
+// Get the modal
+var modal = document.getElementById('about');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 var margin = {top: 30, right: 20, bottom: 30, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
