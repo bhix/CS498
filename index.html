@@ -274,7 +274,7 @@ function update(){
               var t = d3.select(this.parentNode).select("text").node().getBBox(),
               ttop = [t.x + t.width / 2, t.y];
               console.log(d, t, ttop);
-              return "M" + d.start + ",0" + "V" + -offset;
+              return "M" + d.start + ",0" + "V" + -(2 * offset);
             }); 
     var groupsEnter = groups.enter().append("g")
     	    .attr("class", "chartGroup")
@@ -291,7 +291,7 @@ function update(){
               var t = d3.select(this.parentNode).select("text").node().getBBox(),
               ttop = [t.x + t.width / 2, t.y];
               console.log(d, t, ttop);
-              return "M" + d.start + ",0" + "V" + -offset;
+              return "M" + d.start + ",0" + "V" + -(2 *offset);
             });
     groups.exit().remove();
     
