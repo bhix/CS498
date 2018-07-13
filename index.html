@@ -240,11 +240,11 @@ function update(){
             });
 	}
 	else{
+	    chartGroups[chartGroups.length - 1].end = xScale(d.Pick) -5
 	    chartGroups.push({
               round: d.Rnd,
               start: xScale(d.Pick) -5
             });
-	    chartGroups[chartGroups.length - 1].end = xScale(d.Pick) -5
 	}
 	console.log(d.Rnd)
 	console.log(d.Pick)
@@ -350,6 +350,7 @@ function update(){
 	        if (d.DrAV < 10){
                     tooltip.html("Player Info:"
 		          + "<br/>" +  d.Player
+		          + "<br/> Round: " + d.Rnd
 			  + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos
 			  + "<br/> Draft AV: " + d.DrAV
@@ -360,6 +361,7 @@ function update(){
 	        else {
 		    tooltip.html("Player Info:"
 		          + "<br/>" +  d.Player
+		          + "<br/> Round: " + d.Rnd
 			  + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos
 			  + "<br/> Draft AV: " + d.DrAV
@@ -404,6 +406,7 @@ function update(){
                 if (d.DrAV < 10){
                     tooltip.html("Player Info:" 
 			  + "<br/>" + d.Player
+			  + "<br/> Round: " + d.Rnd
 			  + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos
 			  + "<br/> Draft AV: " + d.DrAV
@@ -414,6 +417,7 @@ function update(){
 	        else {
 		    tooltip.html("Player Info:"
 		          + "<br/>" +  d.Player
+			  + "<br/> Round: " + d.Rnd
 			  + "<br/> Pick: " + d.Pick
 	                  + "<br/> Position: " + d.Pos
 			  + "<br/> Draft AV: " + d.DrAV
