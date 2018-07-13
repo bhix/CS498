@@ -188,7 +188,7 @@ var annotation = d3.select("body").append("div")
     .style("opacity", 0);
 	
 //custom color scale for NFC North Teams
-var color = d3.scaleOrdinal().domain(["GNB","DET","CHI","MIN","NFL"]).range(["green","LightBlue","orange","purple","red"]);
+var color = d3.scaleOrdinal().domain(["GNB","DET","CHI","MIN"]).range(["green","LightBlue","orange","purple"]);
 
 function getFullName(tm){
     if (tm == "GNB"){
@@ -202,9 +202,6 @@ function getFullName(tm){
     }
     else if (tm == "MIN"){
 	return "Minnesota"
-    }
-    else{
-	return "NFL Average Player DrAV for Round"
     }
 }
 showSlides(slideIndex);
