@@ -500,7 +500,7 @@ function update(){
 	  .attr("y1", yMap)
 	  .attr("y2", yMap)
 	  .attr("fill", "black");
-      avgs.enter.append("line").attr("class", "avgLine")
+      avgs.enter().append("line").attr("class", "avgLine")
 	  .attr("x1", function(d,i) { return chartGroups[i].start; } )
 	  .attr("x2", function(d,i) { return chartGroups[i].end; } )
 	  .attr("y1", yMap)
