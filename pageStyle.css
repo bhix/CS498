@@ -9,9 +9,6 @@
 .mySlides {
     display: none;
 }
-.paragraphTitle {
-    font-style: bold;	
-}
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
