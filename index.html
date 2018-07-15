@@ -55,6 +55,7 @@
   <span class="slidedot" onclick="currentSlide(8)"></span> 
   <span class="slidedot" onclick="currentSlide(9)"></span> 
 </div>
+<br>
 <div style = "text-align:center">
   <span id="recap"></span>
 <div>
@@ -157,8 +158,29 @@ function getRecap(n){
   if (n == 1){
      return "In 2000 the Lions selected Stockar McDougal as the 20th overall pick in the draft. While he wasn't a bad pick necessarily, he was still pretty below the league average for a 1st round pick in 2000. He ended up being the highlight of the draft for them, unfortunately, as neither their second round pick, Barrett Green, or their third round pick, Rueben Droughns, ended up providing a ton of AV either. Across the NFC north there were 7 players taken who ended up producing more than the McDougal."
   }
-  else{
-    return "test";
+  else if (n==2){ 
+     return "The lions struck gold in the 2001 NFL Draft taking future tackle Jeff Backus in round 1 and future center Dominic Raiola in round 2. They added defensive Tackle Shaun Rogers in round 3, a three time pro bowler, and suddenly things looked brighter in the motor city."
+  }
+  else if (n==3){
+     return "While on paper the Lions draft doesn't look terrible, their first round pick, Joey Harrington, was forever associated with the bad records this team accrued. Quarterback is typically a position that accrues a lot of AV, so despite his AV being respectable relative to the NFL average in round 1, one would've expected it to be much higher give his position and his status as the #3 pick in the draft. It's worth noting that here they could've had Bryant Mckinnie who Minnesota took at #7 overall and continued building on the success of their offensive line draft in 2001. Alex Brown and Aaron Kampman may have ended up being the steals of this draft."
+  }
+  else if (n==4){
+     return "This may end up going down as one of the worst Lions drafts ever. The first in a string of drafts where they inexplicably took WRs in the first round, they selected Charles Rodgers out of Michigan State with the #2 overall pick. Suffice to say, this pick did not end up working out. Boss Bailey and Cory Redding provided value in rounds 2 and 3, but it's near impossible to recover from blowing an early first round pick."
+  }
+  else if (n==5){
+     return "Another draft, another first round WR chosen. However, Roy Williams ended up being a much better pick than the previous year, giving Lions fans some hope. Kevin Jones also added value as a solid RB choice at the end of the first round."
+  }
+  else if (n==6){
+     return "A down draft across the division, with only Green Bay really getting any value for it. The lions for the third year in a row took a WR in round one and similar to the Charles Rogers pick, completely struck out. Second round pick, Shaun Cody, and third round pick Stanley Wilson didn't do much to save the draft and this ended up also being a bad draft for the Lions."
+  }
+  else if (n==7){
+     return "Relative to the rest of the North, the Lions had an awful draft. They selected Ernie Sims at number 9 overall. He wasn't an awful LB, but looking at the data, there were nine other players taken after him who provided more value, some of which could have been had as late as round 4 and 6. The second and third round picks didn't help much either." 
+  }
+  else if (n==8){
+     return "Finally a solid first round pick for the Lions. Calvin Johnson was selected number 2 overall and ended up providing a ton of value for the Lions for many years to come. Unfortunately, the rest of their picks left something to be desired."
+  }
+  else if (n==9){
+    return "Another one of those \"he's not bad, but what could we have had \" drafts as the Lions selected Gosder Cherilus in the first round. However the best T taken by an NFC North team was Josh Sitton who the Packers selected in round 4. Kevin Smith and Cliff Avril ended up being fairly solid picks for the Lions too.";
   }
 }
 
