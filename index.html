@@ -525,6 +525,14 @@ function update(){
           .attr("width", 18)
           .attr("height", 18)
           .style("fill", color);
+      legend.append("line")
+	  .attr("x1", width -18)
+	  .attr("x2", width)
+	  .attr("y1", height)
+	  .attr("y2", height)
+	  .attr("stroke", "#717171")
+	  .attr("stroke-width", "2")
+	  .attr("shape-rendering", "crispEdges");
 
       // draw legend text
       legend.append("text")
