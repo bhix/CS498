@@ -494,8 +494,7 @@ function update(){
 
       var avgs = svg.selectAll(".avgLine").data(averages);
       console.log("hi: " + avgs.size())
-      avgs.select("line")
-	  .attr("class", "avgLine")
+      avgs.attr("class", "avgLine")
 	  .attr("x1", function(d,i) { 
 	      console.log(chartGroups[i].start);
 	      return chartGroups[i].start; } )
