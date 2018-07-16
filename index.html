@@ -86,9 +86,9 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-var margin = {top: 30, right: 50, bottom: 33, left: 60},
+var margin = {top: 100, right: 70, bottom: 33, left: 40},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom,
+    height = 700 - margin.top - margin.bottom,
     offset = 11,
     slideIndex = 1;
 //x axis, set up separately so we have round on it, not pick
@@ -186,20 +186,25 @@ function getRecap(n){
 
 function showSlides(n) {
   var i;
-  var recap = getRecap(n);
+  var recap;
+  if (n < 1){  }
+  else if (n >
   <!-- var slides = document.getElementByClassName("slide"); -->
   var dots = document.getElementsByClassName("slidedot");
   if (n > dots.length) {
     slideIndex = 1;
     year = 2000;
+    recap = getRecap(1);
   } 
   else if (n < 1) {
     slideIndex = dots.length;
     year = 2008;
+    recap = getRecap(9);
   }
   else {
     slideIndex = n;
     year = 1999 + n;
+    recap = getRecap(n);
   }
   console.log(slideIndex + ' ' + year);
   document.getElementById("year").innerHTML = year + " NFC North NFL Draft Picks";
