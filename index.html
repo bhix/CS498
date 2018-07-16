@@ -503,6 +503,7 @@ function update(){
 	  .attr("y2", yMap)
 	  .attr("stroke", "#717171")
 	  .attr("stroke-width", "2")
+	  .attr("stroke-dasharray" "5,5")
 	  .attr("shape-rendering", "crispEdges");
       avgs.enter().append("line").attr("class", "avgLine")
 	  .attr("x1", function(d,i) { return chartGroups[i].start; } )
@@ -511,6 +512,7 @@ function update(){
 	  .attr("y2", yMap)
 	  .attr("stroke", "#717171")
 	  .attr("stroke-width", "2")
+	  .attr("stroke-dasharray" "5,5")
 	  .attr("shape-rendering", "crispEdges");
       // draw legend
       var legend = svg.selectAll(".legend")
@@ -525,14 +527,6 @@ function update(){
           .attr("width", 18)
           .attr("height", 18)
           .style("fill", color);
-      legend.append("line")
-	  .attr("x1", width -18)
-	  .attr("x2", width)
-	  .attr("y1", height)
-	  .attr("y2", height)
-	  .attr("stroke", "#717171")
-	  .attr("stroke-width", "2")
-	  .attr("shape-rendering", "crispEdges");
 
       // draw legend text
       legend.append("text")
@@ -543,6 +537,17 @@ function update(){
           .style("text-anchor", "end")
           .text(function(d) { 
 	      return getFullName(d);})
+	  
+      legend = svg.selectAll(".legend");
+      legend.append("line")
+	  .attr("x1", width -18)
+	  .attr("x2", width)
+	  .attr("y1", height)
+	  .attr("y2", height)
+	  .attr("stroke", "#717171")
+	  .attr("stroke-width", "2")
+	  .attr("stroke-dasharray" "5,5")
+	  .attr("shape-rendering", "crispEdges");
 
       //annotate
       svg.selectAll(".point").filter(function(d) { return d.PB >= 1})
