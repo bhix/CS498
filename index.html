@@ -538,16 +538,24 @@ function update(){
           .text(function(d) { 
 	      return getFullName(d);})
 	  
-      legend = svg.selectAll(".legend");
+      legend = svg.select(".legend");
       legend.append("line")
 	  .attr("x1", width -18)
 	  .attr("x2", width)
-	  .attr("y1", height)
-	  .attr("y2", height)
+	  .attr("y1", 0)
+	  .attr("y2", 0)
 	  .attr("stroke", "#717171")
 	  .attr("stroke-width", "2")
 	  .attr("stroke-dasharray", "5,5")
 	  .attr("shape-rendering", "crispEdges");
+	  
+      legend.append("text")
+          .attr("x", width - 24)
+	  .attr("fill", "black")
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text("NFL Average DrAV for Round)
 
       //annotate
       svg.selectAll(".point").filter(function(d) { return d.PB >= 1})
