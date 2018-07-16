@@ -86,9 +86,9 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-var margin = {top: 100, right: 70, bottom: 33, left: 40},
+var margin = {top: 50, right: 100, bottom: 33, left: 40},
     width = 960 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom,
+    height = 600 - margin.top - margin.bottom,
     offset = 11,
     slideIndex = 1;
 //x axis, set up separately so we have round on it, not pick
@@ -526,14 +526,14 @@ function update(){
 
       // draw legend colored rectangles
       legend.append("rect")
-          .attr("x", width - 18 + margin.left)
-          .attr("width", 18 + margin.left)
+          .attr("x", width - 18 + margin.right)
+          .attr("width", 18 + margin.right)
           .attr("height", 18)
           .style("fill", color);
 
       // draw legend text
       legend.append("text")
-          .attr("x", width - 24 + margin.left)
+          .attr("x", width - 24 + margin.right)
 	  .attr("fill", "black")
           .attr("y", 9)
           .attr("dy", ".35em")
@@ -544,8 +544,8 @@ function update(){
       legend = svg.select(".legend");
       if(legend.select("line").empty()){
       	legend.append("line")
-            .attr("x1", width -18 + margin.left)
-	    .attr("x2", width + margin.left)
+            .attr("x1", width -18 + margin.right)
+	    .attr("x2", width + margin.right)
 	    .attr("y1", 90)
 	    .attr("y2", 90)
 	    .attr("stroke", "#717171")
@@ -554,7 +554,7 @@ function update(){
 	    .attr("shape-rendering", "crispEdges");
 	  
         legend.append("text")
-           .attr("x", width - 24 + margin.left)
+           .attr("x", width - 24 + margin.right)
 	   .attr("fill", "black")
            .attr("y", 89)
            .attr("dy", ".35em")
