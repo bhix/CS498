@@ -574,7 +574,7 @@ function update(){
   
 }
 function showsel(selection){
-    selection.select("text").style("visibility", "visible")
+    selection.select("text").style("visibility", function(d) { if (d.PB == 8) { return "visible" } else { return "hidden" }})
     selection.select("line").style("visibility", "visible")
 }
 </script>
