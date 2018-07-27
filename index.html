@@ -563,13 +563,19 @@ function update(){
       }
 
       //annotate
-      svg.selectAll(".point").filter(function(d) { return d.PB >= 1})
-	      .call(function(d) { 
-	          d3.select(this).select("text").style("visibility", "visible")
-                  d3.select(this).select("line").style("visibility", "visible")});
+      svg.selectAll(".point").filter(function(d) { return d.PB >= 1}).call(showsel)
+	  
+	      //.each(function(d) { 
+	          //d3.select(this).select("text").style("visibility", "visible")
+                  //d3.select(this).select("line").style("visibility", "visible")
+  //});
       
     });
   
+}
+function showsel(selection){
+    selection.select("text").style("visibility", "visible")
+    selection.select("line").style("visibility", "visible")
 }
 </script>
 
