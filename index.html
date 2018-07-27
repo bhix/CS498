@@ -564,7 +564,7 @@ function update(){
 
       //annotate
       svg.selectAll(".point").filter(function(d) { return d.PB >= 1})
-	      .each(function(d) { 
+	      .call(function(d) { 
 	          d3.select(this).select("text").style("visibility", "visible")
                   d3.select(this).select("line").style("visibility", "visible")});
       
